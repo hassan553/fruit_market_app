@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_market_app/core/uitls/app_colors.dart';
 import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 
 import '../../../widgets/custom_text.dart';
@@ -25,7 +26,7 @@ class ListTileWidget extends StatelessWidget {
       leading: Icon(
         iconData,
         size: 25.sp,
-        color: Colors.green,
+        color: AppColors.kPrimaryColor,
       ),
       title: CustomTextWidget(
         text: text,

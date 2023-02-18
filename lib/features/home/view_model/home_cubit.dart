@@ -1,12 +1,18 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_market_app/core/uitls/app_assets.dart';
+import 'package:fruit_market_app/features/auth/model/user_model.dart';
 import 'package:fruit_market_app/features/home/model/collection_model.dart';
 import 'package:fruit_market_app/features/home/model/product_model.dart';
 import 'package:fruit_market_app/features/home/presentation/home_view.dart';
+import 'package:fruit_market_app/main.dart';
+import 'package:print_color/print_color.dart';
 
+import '../../../core/constants/constants.dart';
 import '../../cart/presentation/views/cart_view.dart';
 import '../../favourite/presentation/views/favourite_view.dart';
 import '../../setting/presentation/views/setting_view.dart';
@@ -48,4 +54,14 @@ class HomeCubit extends Cubit<HomeState> {
     emit(ChangeBottomNavigationCurrentIndexState());
   }
 
+  UserModel userModel = UserModel(name: '', image: '', email: '', token: '');
+  Future getCurrentUser() async {
+    String? userId = sharedPreferences.getString('userId');
+
+    var response =
+        await FirebaseFirestore.instance.collection('users').doc(userId).get();
+
+    userModel = UserModel.fromJson(response.data()!);
+    emit(GetUserData());
+  }
 }

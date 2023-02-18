@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../core/uitls/app_colors.dart';
 import 'custom_text.dart';
 
 class CategoryAppList extends StatelessWidget {
@@ -29,7 +30,7 @@ class CategoryAppList extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     color: currentIndex == index
-                        ? Colors.orange
+                        ? AppColors.kPrimaryColor
                         : Colors.transparent,
                   ),
                   padding: const EdgeInsets.symmetric(

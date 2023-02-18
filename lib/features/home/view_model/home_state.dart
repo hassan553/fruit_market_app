@@ -7,6 +7,8 @@ class HomeInitial extends HomeState {}
 
 class ChangeCurrentIndexState extends HomeState {}
 
+class GetUserData extends HomeState {}
+
 class ChangeBottomNavigationCurrentIndexState extends HomeState {}
 
 class DehiscentDryFruitLoadingState extends HomeState {}

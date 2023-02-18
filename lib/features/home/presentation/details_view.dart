@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
-import 'package:fruit_market_app/features/auth/widgets/custom_button.dart';
 import 'package:fruit_market_app/features/widgets/custom_text.dart';
 
+import '../../auth/widgets/rounded_button.dart';
 import '../model/product_model.dart';
 
 class DetailsView extends StatelessWidget {
@@ -135,8 +135,8 @@ class DetailsView extends StatelessWidget {
                       SizedBox(
                         width: 200.sp,
                         height: 50.sp,
-                        child: CustomButton(
-                          function: () {},
+                        child: RoundedButton(
+                          press: () {},
                           text: 'Add To Cart',
                         ),
                       ),

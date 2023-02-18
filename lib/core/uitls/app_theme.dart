@@ -5,17 +5,17 @@ import 'package:google_fonts/google_fonts.dart';
 ThemeData lightTheme() {
   return ThemeData(
     fontFamily: GoogleFonts.robotoMono().fontFamily,
-    primaryColor: AppColors.green,
+    primaryColor: AppColors.kPrimaryColor,
     scaffoldBackgroundColor: Colors.white,
-    bottomNavigationBarTheme:  BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
         elevation: 5,
         showUnselectedLabels: true,
-        selectedItemColor: AppColors.green,
+        selectedItemColor: AppColors.kPrimaryColor,
         unselectedItemColor: AppColors.grey),
     backgroundColor: Colors.grey,
     appBarTheme: const AppBarTheme(
       elevation: 0,
-      backgroundColor: AppColors.green,
+      backgroundColor: AppColors.kPrimaryColor,
     ),
   );
 }

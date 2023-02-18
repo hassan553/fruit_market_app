@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_market_app/core/uitls/app_theme.dart';
-import 'package:fruit_market_app/features/auth/view_model/login_cubit.dart';
 import 'package:fruit_market_app/features/home/presentation/main_view.dart';
 import 'package:fruit_market_app/features/home/presentation/vegetables/bloc/vegetables_bloc.dart';
 import 'package:fruit_market_app/features/home/services/local_database/local_data.dart';
@@ -13,7 +12,7 @@ import 'package:fruit_market_app/features/onboarding/views/splash.dart';
 import '../features/home/presentation/dry_fruit/bloc/dry_fruit_bloc.dart';
 import '../features/home/presentation/fruit/bloc/fruit_bloc.dart';
 import '../features/home/view_model/home_cubit.dart';
-import '../localization/local.dart';
+
 import '../localization/local_controller.dart';
 import 'package:get/get.dart';
 
@@ -25,14 +24,13 @@ class FruitMarket extends StatelessWidget {
     LocalController localController = Get.put(LocalController());
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-            create: (context) => HomeCubit()),
+        BlocProvider(create: (context) => HomeCubit()..getCurrentUser()),
         BlocProvider(
           create: (context) => DryFruitBloc()
             ..add(GetOrganicDryFruitEvent())
             ..add(GetMixedDryFruitEvent()),
         ),
-         BlocProvider(
+        BlocProvider(
           create: (context) => FruitBloc()
             ..add(GetOrganicFruitEvent())
             ..add(GetMixedFruitEvent())
@@ -51,13 +49,12 @@ class FruitMarket extends StatelessWidget {
         designSize: const Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: (context, child) => GetMaterialApp(
+        builder: (context, child) => MaterialApp(
           title: 'Fruit Market ',
           theme: lightTheme(),
           debugShowCheckedModeBanner: false,
           locale: localController.initailLocal,
-          translations: MyLocal(),
-          home: const MainView(),
+          home: const SplashView(),
         ),
       ),
     );

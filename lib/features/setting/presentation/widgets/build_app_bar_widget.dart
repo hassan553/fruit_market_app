@@ -4,12 +4,18 @@ import '../../../../core/uitls/app_colors.dart';
 import '../../../widgets/custom_text.dart';
 
 class BuildAppBarWidget extends StatelessWidget {
-  const BuildAppBarWidget({super.key});
+  final String name;
+  final String email;
+  const BuildAppBarWidget({
+    super.key,
+    required this.name,
+    required this.email,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.green,
+      color: AppColors.kPrimaryColor,
       child: Column(
         children: [
           const SizedBox(
@@ -31,38 +37,32 @@ class BuildAppBarWidget extends StatelessWidget {
                   backgroundColor: AppColors.white,
                   child: Icon(
                     Icons.camera_alt_outlined,
-                    color: AppColors.green,
+                    color: AppColors.kPrimaryColor,
                   ),
                 ),
               ],
             ),
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Spacer(),
-            ],
-          ),
           Column(
-            children: const [
-              SizedBox(
+            children:  [
+              const SizedBox(
                 height: 5,
               ),
               CustomTextWidget(
-                text: 'Hassan Marzouk ',
+                text: name,
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               CustomTextWidget(
-                text: 'hassanmarzouk042@gmail.com ',
+                text: email,
                 color: Colors.white,
                 fontSize: 18,
               ),
-              SizedBox(
+            const  SizedBox(
                 height: 10,
               ),
             ],

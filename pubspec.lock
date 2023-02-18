@@ -318,6 +318,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_auth:
+    dependency: "direct main"
+    description:
+      name: flutter_auth
+      sha256: c8b60beae194b147718e3018a9321a87467b468152dc2bb6de3678898a717f65
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   flutter_bloc:
     dependency: "direct main"
     description:
