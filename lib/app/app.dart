@@ -8,11 +8,13 @@ import 'package:fruit_market_app/core/uitls/app_theme.dart';
 import 'package:fruit_market_app/features/home/presentation/main_view.dart';
 import 'package:fruit_market_app/features/home/presentation/vegetables/bloc/vegetables_bloc.dart';
 import 'package:fruit_market_app/features/home/services/local_database/local_data.dart';
-import 'package:fruit_market_app/features/onboarding/views/splash.dart';
+import 'package:fruit_market_app/features/onboarding/views/onboarding_view.dart';
+import '../features/auth/screens/signup_screen.dart';
 import '../features/home/presentation/dry_fruit/bloc/dry_fruit_bloc.dart';
 import '../features/home/presentation/fruit/bloc/fruit_bloc.dart';
 import '../features/home/view_model/home_cubit.dart';
 
+import '../features/onboarding/views/splash.dart';
 import '../localization/local_controller.dart';
 import 'package:get/get.dart';
 
@@ -27,7 +29,9 @@ class FruitMarket extends StatelessWidget {
         BlocProvider(create: (context) => HomeCubit()..getCurrentUser()),
         BlocProvider(
           create: (context) => DryFruitBloc()
-            ..add(GetOrganicDryFruitEvent())
+            ..add(GetIndehiscentDryFruitEvent())
+            ..add(GetDehiscentDryFruitEvent())
+            ..add(GetKashmiriDryFruitEvent())
             ..add(GetMixedDryFruitEvent()),
         ),
         BlocProvider(
@@ -39,7 +43,7 @@ class FruitMarket extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => VegetablesBloc()
-            ..add(GetOrganicVegetablesEvent())
+             ..add(GetOrganicVegetablesEvent())
             ..add(GetMixedVegetablesEvent())
             ..add(GetRootVegetablesEvent())
             ..add(GetAlliumVegetablesEvent()),
@@ -54,7 +58,7 @@ class FruitMarket extends StatelessWidget {
           theme: lightTheme(),
           debugShowCheckedModeBanner: false,
           locale: localController.initailLocal,
-          home: const SplashView(),
+          home:const  SplashView(),
         ),
       ),
     );

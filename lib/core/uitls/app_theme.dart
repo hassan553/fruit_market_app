@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 ThemeData lightTheme() {
   return ThemeData(
-    fontFamily: GoogleFonts.robotoMono().fontFamily,
+    fontFamily: GoogleFonts.robotoCondensed().fontFamily,
     primaryColor: AppColors.kPrimaryColor,
     scaffoldBackgroundColor: Colors.white,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(

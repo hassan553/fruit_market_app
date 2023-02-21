@@ -9,7 +9,6 @@ abstract class RegisterState extends Equatable {
 
 class RegisterInitial extends RegisterState {}
 
-
 class RegisterLoadingState extends RegisterState {}
 
 class RegisterSuccessState extends RegisterState {
@@ -21,3 +20,7 @@ class RegisterErrorState extends RegisterState {
   final String error;
   const RegisterErrorState(this.error);
 }
+
+class EmailVerifiedSuccessState extends RegisterState {}
+
+class EmailVerifiedLoadingState extends RegisterState {}

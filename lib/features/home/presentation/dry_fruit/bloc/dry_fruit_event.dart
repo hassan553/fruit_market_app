@@ -7,6 +7,8 @@ abstract class DryFruitEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetOrganicDryFruitEvent extends DryFruitEvent {}
+class GetIndehiscentDryFruitEvent extends DryFruitEvent {}
+class GetDehiscentDryFruitEvent extends DryFruitEvent {}
 
 class GetMixedDryFruitEvent extends DryFruitEvent {}
+class GetKashmiriDryFruitEvent extends DryFruitEvent {}

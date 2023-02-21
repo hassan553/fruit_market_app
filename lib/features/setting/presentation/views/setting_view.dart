@@ -23,14 +23,16 @@ class SettingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeState>(
-      listener: (context, state) {
-       
-      },
+      listener: (context, state) {},
       builder: (context, state) {
-        var cubit = HomeCubit.get(context).userModel;
+        var cubit = HomeCubit.get(context);
         return Scaffold(
           body: Column(children: [
-            BuildAppBarWidget(name: cubit.name, email: cubit.email),
+            BuildAppBarWidget(
+              image: cubit.userModel.image,
+              name: cubit.userModel.name,
+              email: cubit.userModel.email,
+            ),
             const SizedBox(
               height: 20,
             ),

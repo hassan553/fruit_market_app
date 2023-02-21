@@ -56,10 +56,10 @@ class HomeCubit extends Cubit<HomeState> {
 
   UserModel userModel = UserModel(name: '', image: '', email: '', token: '');
   Future getCurrentUser() async {
-    String? userId = sharedPreferences.getString('userId');
-
+    User id =  FirebaseAuth.instance.currentUser!;
+    Print.cyan(id);
     var response =
-        await FirebaseFirestore.instance.collection('users').doc(userId).get();
+        await FirebaseFirestore.instance.collection('users').doc(id.uid).get();
 
     userModel = UserModel.fromJson(response.data()!);
     emit(GetUserData());

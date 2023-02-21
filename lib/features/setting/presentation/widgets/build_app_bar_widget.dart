@@ -6,10 +6,12 @@ import '../../../widgets/custom_text.dart';
 class BuildAppBarWidget extends StatelessWidget {
   final String name;
   final String email;
+  final String image;
   const BuildAppBarWidget({
     super.key,
     required this.name,
     required this.email,
+    required this.image,
   });
 
   @override
@@ -25,14 +27,14 @@ class BuildAppBarWidget extends StatelessWidget {
             alignment: Alignment.center,
             child: Stack(
               alignment: Alignment.topRight,
-              children: const [
+              children:  [
                 CircleAvatar(
                   radius: 60,
                   backgroundImage: AssetImage(
-                    'assets/images/imag1.png',
+                    image,
                   ),
                 ),
-                CircleAvatar(
+                const CircleAvatar(
                   radius: 18,
                   backgroundColor: AppColors.white,
                   child: Icon(

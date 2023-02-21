@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_market_app/features/auth/screens/otp_screen.dart';
 import 'package:route_transitions_easy/route_transitions_easy.dart';
 
 Size screenSize(context) {

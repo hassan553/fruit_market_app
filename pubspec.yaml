@@ -38,6 +38,7 @@ dependencies:
   dartz: ^0.10.1
   device_preview: ^1.1.0
   dots_indicator: ^2.1.0
+  email_auth: ^1.0.0
   equatable: ^2.0.5
   fancy_shimmer_image: ^2.0.2
   firebase_auth: ^3.4.1
@@ -53,6 +54,7 @@ dependencies:
   flutter_screenutil: ^5.6.0
   fluttericon: ^2.0.0
   fluttertoast: ^8.0.7
+  flutter_pin_code_fields: ^1.2.0
   get: ^4.6.5
   get_it: ^7.2.0
   google_fonts: ^3.0.1

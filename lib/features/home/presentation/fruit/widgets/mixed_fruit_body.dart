@@ -9,8 +9,8 @@ import '../../details_view.dart';
 
 import '../bloc/fruit_bloc.dart';
 
-class MixedDryFruitBody extends StatelessWidget {
-  const MixedDryFruitBody({super.key});
+class MixedFruitBody extends StatelessWidget {
+  const MixedFruitBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +22,9 @@ class MixedDryFruitBody extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 FruitTitleTextWidget(
-                  priceOff: state.organicCollection.priceOff,
-                  subTitle: state.organicCollection.subTitle,
-                  title: state.organicCollection.title,
+                  priceOff: state.mixedFruitCollection.priceOff,
+                  subTitle: state.mixedFruitCollection.subTitle,
+                  title: state.mixedFruitCollection.title,
                 ),
                 SizedBox(
                   height: 8.sp,
@@ -55,7 +55,7 @@ class MixedDryFruitBody extends StatelessWidget {
                       ),
                     ),
                     itemCount: BlocProvider.of<FruitBloc>(context)
-                        .organicFruitList
+                        .mixedFruitList
                         .length,
                   ),
                 ),

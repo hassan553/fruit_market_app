@@ -11,15 +11,14 @@ class DryFruitsBodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: const [
-          IndehiscentDryFruitBody(),
-          DehiscentDryFruitBody(),
-          MixedDryFruitBody(),
-          KashmiriDryFruitBody(),
-        ],
-      
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: const [
+        IndehiscentDryFruitBody(),
+        MixedDryFruitBody(),
+        DehiscentDryFruitBody(),
+        KashmiriDryFruitBody(),
+      ],
     );
   }
 }

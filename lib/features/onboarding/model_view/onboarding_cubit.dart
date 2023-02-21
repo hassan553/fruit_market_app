@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-
 import '../../../core/uitls/app_assets.dart';
 import '../model/onboarding_model.dart';
 
@@ -17,18 +16,20 @@ class OnboardingCubit extends Cubit<OnboardingState> {
   List<OnBoardingModel> onBoardingStrings = [
     OnBoardingModel(
       image: AppAssets.onboarding1,
-      title: 'Best Parking Spots',
-      subTitle: 'Find the best parking spots near you',
+      title: 'Looking Fro Items',
+      subTitle:
+          'Our new service makes it easy for you to buy  anything , there are new feature will really help you',
     ),
     OnBoardingModel(
       image: AppAssets.onboarding2,
-      title: 'Quick Navigation',
-      subTitle: 'Navigate quickly in crowded garage',
+      title: 'Easy Payments',
+      subTitle: 'Hassle free payment to save your time ',
     ),
     OnBoardingModel(
       image: AppAssets.onboarding3,
-      title: 'Easy Payments',
-      subTitle: 'Hassle free payment to save your time ',
+      title: 'Send Items',
+      subTitle:
+          'send any item for you anywhere you are , it helps you to save your time ',
     ),
   ];
   changeCurrentIndex(index) {
@@ -37,7 +38,11 @@ class OnboardingCubit extends Cubit<OnboardingState> {
   }
 
   checkCurrentIndex() {
-    pageController.jumpToPage(++currentIndex);
+    pageController.animateToPage(
+      ++currentIndex,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.fastLinearToSlowEaseIn,
+    );
     emit(MoveNextPageState());
   }
 }

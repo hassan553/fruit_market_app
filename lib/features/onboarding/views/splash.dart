@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_market_app/features/home/presentation/main_view.dart';
+import 'package:fruit_market_app/features/onboarding/views/onboarding_view.dart';
 import 'package:fruit_market_app/features/widgets/custom_text.dart';
 
 import '../../../core/functions/globle_functions.dart';
@@ -29,7 +30,7 @@ class _SplashViewState extends State<SplashView>
   void initState() {
     Future.delayed(
       const Duration(seconds: 3),
-      () => navigateOff(context, LoginView()),
+      () => navigateOff(context,const  OnBoardingView()),
     );
     animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 1));

@@ -6,7 +6,7 @@ import '../../../core/uitls/app_colors.dart';
 
 class DotIndicator extends StatelessWidget {
   final double index;
-  const DotIndicator({super.key,required this.index});
+  const DotIndicator({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class DotIndicator extends StatelessWidget {
       dotsCount: 3,
       position: index,
       decorator: DotsDecorator(
-        activeColor: AppColors.orange,
+        activeColor: AppColors.kPrimaryColor,
         size: const Size.square(10.0),
         activeSize: const Size(40.0, 9.0),
         activeShape:

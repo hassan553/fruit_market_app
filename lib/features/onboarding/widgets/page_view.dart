@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/uitls/app_colors.dart';
 import '../model/onboarding_model.dart';
 
 import '../../../core/functions/globle_functions.dart';
-import '../../../core/uitls/app_colors.dart';
 import '../../widgets/custom_text.dart';
 
 class PageViewWidget extends StatelessWidget {
@@ -30,19 +31,18 @@ class PageViewWidget extends StatelessWidget {
               Image.asset(
                 onboardingList[index].image,
                 fit: BoxFit.fill,
-                width: 150,
-                height: 150,
+                width: screenSize(context).width * .8,
+                height: screenSize(context).height * .4,
               ),
               SizedBox(
-                height: screenSize(context).height * .07,
+                height: screenSize(context).height * .01,
               ),
               Container(
-                padding: const EdgeInsets.all(10),
-                width: screenSize(context).width * .8,
-                height: screenSize(context).height * .2,
+                padding: const EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: AppColors.orange,
+                    color: AppColors.kPrimaryColor,
                     width: 2,
                   ),
                   color: Colors.white.withOpacity(.3),
@@ -54,17 +54,22 @@ class PageViewWidget extends StatelessWidget {
                     CustomTextWidget(
                       text: onboardingList[index].title,
                       fontSize: 25,
-                      color: AppColors.white,
+                      color: Color.fromARGB(255, 10, 105, 66),
+                      fontWeight: FontWeight.bold,
                     ),
                     const SizedBox(
-                      height: 3,
+                      height: 8,
                     ),
                     Align(
                       alignment: Alignment.center,
-                      child: CustomTextWidget(
-                        text: onboardingList[index].subTitle,
-                        fontSize: 16,
-                        color: AppColors.white,
+                      child: Text(
+                        onboardingList[index].subTitle,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Color.fromARGB(255, 10, 105, 66),
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ],

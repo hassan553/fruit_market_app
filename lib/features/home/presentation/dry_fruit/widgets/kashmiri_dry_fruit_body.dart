@@ -15,15 +15,15 @@ class KashmiriDryFruitBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DryFruitBloc, DryFruitState>(
       builder: (context, state) {
-        switch (state.organicState) {
+        switch (state.kashmiriDryFruitState) {
           case RequestState.loaded:
             return Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 FruitTitleTextWidget(
-                  priceOff: state.organicCollection.priceOff,
-                  subTitle: state.organicCollection.subTitle,
-                  title: state.organicCollection.title,
+                  priceOff: state.kashmiriDryFruitCollection.priceOff,
+                  subTitle: state.kashmiriDryFruitCollection.subTitle,
+                  title: state.kashmiriDryFruitCollection.title,
                 ),
                 SizedBox(
                   height: 8.sp,
@@ -40,7 +40,7 @@ class KashmiriDryFruitBody extends StatelessWidget {
                           context,
                           DetailsView(
                             model: BlocProvider.of<DryFruitBloc>(context)
-                                .organicFruitList[index],
+                                .kashmiriDryFruitList[index],
                           ),
                         );
                       },
@@ -48,13 +48,13 @@ class KashmiriDryFruitBody extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 8),
                         child: ProductItemWidget(
                           productModel: BlocProvider.of<DryFruitBloc>(context)
-                              .organicFruitList[index],
+                              .kashmiriDryFruitList[index],
                           image: '',
                         ),
                       ),
                     ),
                     itemCount: BlocProvider.of<DryFruitBloc>(context)
-                        .organicFruitList
+                        .kashmiriDryFruitList
                         .length,
                   ),
                 ),

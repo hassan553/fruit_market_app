@@ -17,7 +17,7 @@ class ProductModel extends Equatable {
   });
   factory ProductModel.fromJson(Map json) => ProductModel(
         name: json['name'],
-        nutrition: json['nutrition'],
+        nutrition: json['nutrition']??[],
         price: json['price'],
         image: json['image'],
         star: json['star'],

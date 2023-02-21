@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,15 +15,15 @@ class DehiscentDryFruitBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DryFruitBloc, DryFruitState>(
       builder: (context, state) {
-        switch (state.organicState) {
+        switch (state.dehiscentState) {
           case RequestState.loaded:
             return Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 FruitTitleTextWidget(
-                  priceOff: state.organicCollection.priceOff,
-                  subTitle: state.organicCollection.subTitle,
-                  title: state.organicCollection.title,
+                  priceOff: state.dehiscentCollection.priceOff,
+                  subTitle: state.dehiscentCollection.subTitle,
+                  title: state.dehiscentCollection.title,
                 ),
                 SizedBox(
                   height: 8.sp,
@@ -41,7 +40,7 @@ class DehiscentDryFruitBody extends StatelessWidget {
                           context,
                           DetailsView(
                             model: BlocProvider.of<DryFruitBloc>(context)
-                                .organicFruitList[index],
+                                .dehiscentFruitList[index],
                           ),
                         );
                       },
@@ -49,13 +48,13 @@ class DehiscentDryFruitBody extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 8),
                         child: ProductItemWidget(
                           productModel: BlocProvider.of<DryFruitBloc>(context)
-                              .organicFruitList[index],
+                              .dehiscentFruitList[index],
                           image: '',
                         ),
                       ),
                     ),
                     itemCount: BlocProvider.of<DryFruitBloc>(context)
-                        .organicFruitList
+                        .dehiscentFruitList
                         .length,
                   ),
                 ),

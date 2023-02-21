@@ -15,15 +15,15 @@ class MixedDryFruitBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DryFruitBloc, DryFruitState>(
       builder: (context, state) {
-        switch (state.organicState) {
+        switch (state.mixedDryFruitState) {
           case RequestState.loaded:
             return Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 FruitTitleTextWidget(
-                  priceOff: state.organicCollection.priceOff,
-                  subTitle: state.organicCollection.subTitle,
-                  title: state.organicCollection.title,
+                  priceOff: state.mixedDryFruitCollection.priceOff,
+                  subTitle: state.mixedDryFruitCollection.subTitle,
+                  title: state.mixedDryFruitCollection.title,
                 ),
                 SizedBox(
                   height: 8.sp,
@@ -40,7 +40,7 @@ class MixedDryFruitBody extends StatelessWidget {
                           context,
                           DetailsView(
                             model: BlocProvider.of<DryFruitBloc>(context)
-                                .organicFruitList[index],
+                                .mixedDryFruitList[index],
                           ),
                         );
                       },
@@ -48,13 +48,13 @@ class MixedDryFruitBody extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 8),
                         child: ProductItemWidget(
                           productModel: BlocProvider.of<DryFruitBloc>(context)
-                              .organicFruitList[index],
+                              .mixedDryFruitList[index],
                           image: '',
                         ),
                       ),
                     ),
                     itemCount: BlocProvider.of<DryFruitBloc>(context)
-                        .organicFruitList
+                        .mixedDryFruitList
                         .length,
                   ),
                 ),

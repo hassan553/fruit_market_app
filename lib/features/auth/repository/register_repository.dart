@@ -16,10 +16,10 @@ class RegisterRepository {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       UserModel userModel = UserModel(
-          name: name, image: image, email: email, token: userId!);
+          name: name, image: image, email: email, token: _auth.currentUser!.uid);
 
       await FirebaseFirestore.instance
-          .collection('users').doc(userId)
+          .collection('users').doc(_auth.currentUser!.uid)
           .set(userModel.toMap());
       return right(result);
     } catch (error) {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
+import 'package:fruit_market_app/features/auth/repository/otp_repository.dart';
+import 'package:fruit_market_app/features/auth/screens/otp_screen.dart';
 import 'package:fruit_market_app/features/auth/screens/signup_screen.dart';
 import 'package:fruit_market_app/features/home/presentation/main_view.dart';
 import 'package:print_color/print_color.dart';
@@ -30,7 +32,8 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => RegisterCubit(gitIt<RegisterRepository>()),
+      create: (context) =>
+          RegisterCubit(gitIt<RegisterRepository>(), gitIt<OTPRepository>()),
       child: SafeArea(
         child: Scaffold(
           body: SizedBox(
@@ -61,13 +64,13 @@ class RegisterView extends StatelessWidget {
                             height: 15,
                           ),
                           BlocConsumer<RegisterCubit, RegisterState>(
-                            listener: (context, state) async {
+                            listener: (context, state) {
                               if (state is RegisterSuccessState) {
-                                 Print.black(state.user.user?.uid);
-                                await sharedPreferences.setString(
-                                    'userId', state.user.user!.uid );
-                               
-                                navigateOff(context, const MainView());
+                                navigateTo(
+                                    context,
+                                    EmailVerificationView(
+                                      email: state.user.user!.email.toString(),
+                                    ));
                               }
                             },
                             builder: (context, state) => Form(
