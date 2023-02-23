@@ -8,8 +8,6 @@ import '../../../widget/organic_fruit_text_widget.dart';
 import '../../../widget/product_item.dart';
 import '../../details_view.dart';
 
-
-
 class RootVegetablesBody extends StatelessWidget {
   const RootVegetablesBody({super.key});
 
@@ -31,7 +29,7 @@ class RootVegetablesBody extends StatelessWidget {
                   height: 8.sp,
                 ),
                 SizedBox(
-                  height: screenSize(context).height * .35,
+                  height: screenSize(context).height * .28,
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     shrinkWrap: true,

@@ -15,8 +15,11 @@ class DryFruitsBodyView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: const [
         IndehiscentDryFruitBody(),
+        SizedBox(height: 15),
         MixedDryFruitBody(),
+        SizedBox(height: 15),
         DehiscentDryFruitBody(),
+        SizedBox(height: 15),
         KashmiriDryFruitBody(),
       ],
     );

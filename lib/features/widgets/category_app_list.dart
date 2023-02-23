@@ -11,43 +11,42 @@ class CategoryAppList extends StatelessWidget {
       {super.key,
       required this.categoryList,
       required this.currentIndex,
-      required this.onTap});
+      required this.onTap,});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
-      child: SingleChildScrollView(
-        child: Row(
-          children: [
-            ...List.generate(
-              categoryList.length,
-              (index) => InkWell(
-                onTap: () {
-                  onTap(index);
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: currentIndex == index
-                        ? AppColors.kPrimaryColor
-                        : Colors.transparent,
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 20,
-                  ),
-                  child: CustomTextWidget(
-                    text: categoryList[index],
-                    color: currentIndex == index ? Colors.white : Colors.grey,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16.sp,
-                  ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ...List.generate(
+            categoryList.length,
+            (index) => InkWell(
+              onTap: () {
+                onTap(index);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: currentIndex == index
+                      ? AppColors.kPrimaryColor
+                      : Colors.transparent,
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 20,
+                ),
+                child: CustomTextWidget(
+                  text: categoryList[index],
+                  color: currentIndex == index ? Colors.white : Colors.grey,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16.sp,
                 ),
               ),
-            ).toList(),
-          ],
-        ),
+            ),
+          ).toList(),
+        ],
       ),
     );
   }

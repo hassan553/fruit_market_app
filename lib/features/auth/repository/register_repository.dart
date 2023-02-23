@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../../core/constants/constants.dart';
 import '../model/user_model.dart';
 
 class RegisterRepository {

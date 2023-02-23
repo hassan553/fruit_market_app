@@ -20,6 +20,7 @@ class CategoryItemWidget extends StatelessWidget {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      
                       FruitTitleTextWidget(
                         priceOff:9,
                         subTitle: 'snapshot.data!.subTitle',

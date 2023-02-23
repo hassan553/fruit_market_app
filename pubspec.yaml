@@ -51,10 +51,10 @@ dependencies:
   flutter_bloc: ^8.1.1
   flutter_facebook_auth: ^3.5.0
   flutter_feather_icons: ^2.0.0+1
+  flutter_pin_code_fields: ^1.2.0
   flutter_screenutil: ^5.6.0
   fluttericon: ^2.0.0
   fluttertoast: ^8.0.7
-  flutter_pin_code_fields: ^1.2.0
   get: ^4.6.5
   get_it: ^7.2.0
   google_fonts: ^3.0.1
@@ -62,20 +62,25 @@ dependencies:
   http: ^0.13.4
   icons_plus: ^1.0.2
   image_cropper: ^1.4.1
-  image_picker: ^0.8.6+1
+  image_picker: ^0.8.6+2
+  internet_connection_checker: ^1.0.0+1
   lottie: ^2.2.0
   print_color: ^3.0.5
   route_transitions_easy: ^0.0.3
   shared_preferences: ^2.0.16
   shimmer: ^2.0.0
   sqflite: ^2.2.4+1
-  url_launcher: ^6.0.9
   uuid: ^3.0.7
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.11.0
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logo.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

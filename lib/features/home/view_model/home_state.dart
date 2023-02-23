@@ -7,18 +7,29 @@ class HomeInitial extends HomeState {}
 
 class ChangeCurrentIndexState extends HomeState {}
 
-class GetUserData extends HomeState {}
+class GetUserData extends HomeState {
+  GetUserData();
+}
+
+class GetUserDataErrorState extends HomeState {
+  String error;
+  GetUserDataErrorState(this.error);
+}
+
+class GetUserPictureSuccessState extends HomeState {}
+
+class GetUserPictureErrorState extends HomeState {}
 
 class ChangeBottomNavigationCurrentIndexState extends HomeState {}
 
-class DehiscentDryFruitLoadingState extends HomeState {}
+class AddUserOrderSuccessState extends HomeState {}
 
-class DehiscentDryFruitSuccessState extends HomeState {
-  final CollectionModel collectionModel;
-  DehiscentDryFruitSuccessState(this.collectionModel);
-}
+class AddUserOrderErrorState extends HomeState {}
 
-class DehiscentDryFruitErrorState extends HomeState {
-  final String error;
-  DehiscentDryFruitErrorState(this.error);
-}
+class AddUserOrderLoadingState extends HomeState {}
+
+class GetUserOrdersSuccessState extends HomeState {}
+
+class GetUserOrdersErrorState extends HomeState {}
+
+class GetUserOrdersLoadingState extends HomeState {}

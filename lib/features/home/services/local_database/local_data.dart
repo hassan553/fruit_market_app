@@ -1,18 +1,23 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dartz/dartz.dart';
+import 'package:print_color/print_color.dart';
 import 'package:sqflite/sqflite.dart';
 
+import '../../model/product_model.dart';
+
 class LocalDatabase {
-  static Database? _database;
-  static void create() async {
+  Database? _database;
+  void create() async {
     _database = await openDatabase(
-      'products.db',
-      version: 3,
+      'Products.db',
+      version: 1,
       onCreate: (database, version) {
         database
             .execute(
-          'create table product (id integer primary key ,image text ,name text ,integer star ,price integer ,nutrition list )',
+          'create table product (id integer ,image text ,name text , star integer ,price integer ,nutrition text )',
         )
             .then((value) {
           print('create database products  successfully ');
@@ -28,24 +33,32 @@ class LocalDatabase {
     );
   }
 
-  static Future<Either<String, String>> insert({
-    required Map<String, dynamic> productModel,
+  Future<Either<String, String>> insert({
+    required ProductModel productModel,
   }) async {
     try {
+      String nutrition = json.encode(productModel.nutrition);
       await _database?.transaction((txn) async {
-        await txn.insert('product', productModel);
+        await txn.rawInsert(
+            'INSERT INTO product (id,image,name,star,price,nutrition)Values("${productModel.id},${productModel.image},${productModel.name},${productModel.star},${productModel.price},$nutrition,")');
       });
+
       return right('done');
     } catch (error) {
+      Print.cyan(error);
       return left(error.toString());
     }
   }
 
-  static Future<Either<String, List<Map<String, Object?>>?>> getData(
-      Database? database) async {
+  List<ProductModel> result = [];
+  Future<Either<String, List<ProductModel>>> getData(Database? database) async {
     try {
-      List<Map<String, Object?>>? result = await database?.query('product');
-      print('i get data successfully ');
+      List<Map<String, Object?>>? r =
+          await database?.rawQuery('SELECT * FROM product');
+
+      r!.map((element) {
+        result.add(ProductModel.fromJson(element));
+      });
 
       return right(result);
     } catch (error) {
@@ -53,7 +66,7 @@ class LocalDatabase {
     }
   }
 
-  static void deleteData({
+  void deleteData({
     required String id,
   }) {
     try {

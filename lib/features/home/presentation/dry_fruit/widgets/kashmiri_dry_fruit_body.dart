@@ -29,7 +29,7 @@ class KashmiriDryFruitBody extends StatelessWidget {
                   height: 8.sp,
                 ),
                 SizedBox(
-                  height: screenSize(context).height * .35,
+                  height: screenSize(context).height * .28,
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
                     shrinkWrap: true,

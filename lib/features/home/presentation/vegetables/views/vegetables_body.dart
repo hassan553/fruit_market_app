@@ -9,15 +9,17 @@ class VegetablesBodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: const [
-          OrganicVegetablesBody(),
-          MixedVegetablesBody(),
-          AlliumVegetablesBody(),
-          RootVegetablesBody(),
-        ],
-      
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: const [
+        OrganicVegetablesBody(),
+        SizedBox(height: 15),
+        MixedVegetablesBody(),
+        SizedBox(height: 15),
+        AlliumVegetablesBody(),
+        SizedBox(height: 15),
+        RootVegetablesBody(),
+      ],
     );
   }
 }

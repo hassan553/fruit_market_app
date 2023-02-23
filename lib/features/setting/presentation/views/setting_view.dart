@@ -22,8 +22,7 @@ class SettingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubit, HomeState>(
-      listener: (context, state) {},
+    return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         var cubit = HomeCubit.get(context);
         return Scaffold(
@@ -47,7 +46,9 @@ class SettingView extends StatelessWidget {
                       navigateTo(context, const OrderView());
                     },
                   ),
-                  const DividerWidget(),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   ListTileWidget(
                     iconData: FontAwesome.heart_fill,
                     text: 'Favorites',
@@ -55,7 +56,9 @@ class SettingView extends StatelessWidget {
                       navigateTo(context, const FavoriteView());
                     },
                   ),
-                  const DividerWidget(),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   ListTileWidget(
                     iconData: FontAwesome.cart_shopping,
                     text: 'My Cart',
@@ -63,21 +66,17 @@ class SettingView extends StatelessWidget {
                       navigateTo(context, const CartView());
                     },
                   ),
-                  const DividerWidget(),
-                  ListTileWidget(
-                    iconData: FontAwesome.language,
-                    text: 'language'.tr,
-                    onTap: () {
-                      languagesWidget(context);
-                    },
+                  const SizedBox(
+                    height: 15,
                   ),
-                  const DividerWidget(),
                   ListTileWidget(
                     iconData: FontAwesome.share,
                     text: 'Refer a Friend',
                     onTap: () {},
                   ),
-                  const DividerWidget(),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   ListTileWidget(
                     iconData: Icons.help,
                     text: 'Help',
@@ -85,7 +84,9 @@ class SettingView extends StatelessWidget {
                       navigateTo(context, const HelpView());
                     },
                   ),
-                  const DividerWidget(),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   ListTileWidget(
                     iconData: Icons.logout,
                     text: 'Logout',

@@ -5,11 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
 import 'package:fruit_market_app/features/widgets/custom_text.dart';
 
+import '../../../core/uitls/app_colors.dart';
 import '../../auth/widgets/rounded_button.dart';
 import '../model/product_model.dart';
 
 class DetailsView extends StatelessWidget {
-  
   final ProductModel model;
   const DetailsView({super.key, required this.model});
 
@@ -58,8 +58,7 @@ class DetailsView extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: FancyShimmerImage(
-                                imageUrl: model
-                                    .image,
+                                imageUrl: model.image,
                                 errorWidget: Image.network(
                                   'https://i0.wp.com/www.dobitaobyte.com.br/wp-content/uploads/2016/02/no_image.png?ssl=1',
                                 ),
@@ -72,8 +71,7 @@ class DetailsView extends StatelessWidget {
                           Align(
                             alignment: Alignment.center,
                             child: CustomTextWidget(
-                              text: model
-                                  .name,
+                              text: model.name,
                               fontSize: 30.sp,
                               fontWeight: FontWeight.bold,
                             ),
@@ -91,9 +89,7 @@ class DetailsView extends StatelessWidget {
                           ),
                           Column(
                             children: List.generate(
-                              model
-                                  .nutrition
-                                  .length,
+                              model.nutrition.length,
                               (i) {
                                 return Padding(
                                   padding: const EdgeInsets.all(5),
@@ -107,8 +103,7 @@ class DetailsView extends StatelessWidget {
                                         width: 10,
                                       ),
                                       Text(
-                                      model
-                                            .nutrition[i],
+                                        model.nutrition[i],
                                         style: TextStyle(
                                           fontSize: 14.sp,
                                           color: Colors.grey,
@@ -127,17 +122,27 @@ class DetailsView extends StatelessWidget {
                   Row(
                     children: [
                       CustomTextWidget(
-                        text:
-                            '${model.price}Per/Kg',
+                        text: '${model.price} Per/Kg',
                         fontSize: 18.sp,
                       ),
                       const Spacer(),
                       SizedBox(
-                        width: 200.sp,
-                        height: 50.sp,
-                        child: RoundedButton(
-                          press: () {},
-                          text: 'Add To Cart',
+                        // width: 200.sp,
+                        // height: 50.sp,
+                        child: MaterialButton(
+                          onPressed: () {
+                            print('hassa');
+                          },
+                          padding: const EdgeInsets.all(10),
+                          color: AppColors.kPrimaryColor,
+                          child: const Text(
+                            'Add To Cart',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                     ],
