@@ -1,4 +1,6 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:fruit_market_app/app/app.dart';
@@ -11,10 +13,10 @@ void main() async {
   await Firebase.initializeApp();
   ServicesLector.init();
   sharedPreferences = await SharedPreferences.getInstance();
-  runApp(const FruitMarket());
-  // runApp(
-  // DevicePreview(
-  //   enabled: !kReleaseMode,
-  //   builder: (context) => FruitMarket(), // Wrap your app
-  // ));
+  // runApp(const FruitMarket());
+  runApp(
+  DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => FruitMarket(), // Wrap your app
+  ));
 }

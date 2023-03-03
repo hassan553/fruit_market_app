@@ -126,22 +126,18 @@ class DetailsView extends StatelessWidget {
                         fontSize: 18.sp,
                       ),
                       const Spacer(),
-                      SizedBox(
-                        // width: 200.sp,
-                        // height: 50.sp,
-                        child: MaterialButton(
-                          onPressed: () {
-                            print('hassa');
-                          },
-                          padding: const EdgeInsets.all(10),
-                          color: AppColors.kPrimaryColor,
-                          child: const Text(
-                            'Add To Cart',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
+                      MaterialButton(
+                        onPressed: () {
+                          print('hassa');
+                        },
+                        padding: const EdgeInsets.all(10),
+                        color: AppColors.kPrimaryColor,
+                        child: const Text(
+                          'Add To Cart',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
                           ),
                         ),
                       ),

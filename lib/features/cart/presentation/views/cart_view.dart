@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/uitls/app_colors.dart';
 import '../../../favourite/presentation/widgets/favorite_item_widget.dart';
 import '../../../widgets/custom_text.dart';
+import '../widgets/cart_item_widget.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
@@ -21,20 +22,56 @@ class CartView extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-        child: ListView.separated(
-          itemBuilder: (context, index) {
-            return const FavoriteItemWidget();
-          },
-          separatorBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-              child: Divider(
-                height: 7,
-                color: AppColors.green,
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return const CardItemWidget();
+                },
+                separatorBuilder: (context, index) {
+                  return const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                    child: Divider(
+                      height: 7,
+                      color: AppColors.green,
+                    ),
+                  );
+                },
+                itemCount: 100,
               ),
-            );
-          },
-          itemCount: 100,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Text(
+                    '12.12 Per/Kg',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Spacer(),
+                  MaterialButton(
+                    padding: EdgeInsets.all(10),
+                    color: AppColors.kPrimaryColor,
+                    onPressed: () {},
+                    child: Text(
+                      'Order Now',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

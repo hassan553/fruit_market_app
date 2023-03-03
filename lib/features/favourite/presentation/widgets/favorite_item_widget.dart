@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_market_app/features/home/view_model/home_cubit.dart';
 
 import '../../../../core/functions/globle_functions.dart';
 import '../../../../core/uitls/app_colors.dart';
@@ -63,49 +65,6 @@ class FavoriteItemWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.sp,
                 ),
-                Row(
-                  children: [
-                    Container(
-                      width: 30.sp,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          width: 2,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      child: const CustomTextWidget(
-                        text: '-',
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15.sp,
-                    ),
-                    CustomTextWidget(
-                      text: '23',
-                      fontSize: 18.sp,
-                      color: Colors.grey,
-                    ),
-                    SizedBox(
-                      width: 15.sp,
-                    ),
-                    Container(
-                      width: 30.sp,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          width: 2,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      child: const CustomTextWidget(
-                        text: '+',
-                      ),
-                    ),
-                  ],
-                ),
               ],
             ),
           ),
@@ -119,20 +78,26 @@ class FavoriteItemWidget extends StatelessWidget {
                   fontSize: 16.sp,
                   color: Colors.blue,
                 ),
-                InkWell(
-                  onTap: () {},
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.all(4),
-                      width: 80.sp,
-                      color: AppColors.green,
-                      child: CustomTextWidget(
-                        text: 'Add',
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                BlocBuilder<HomeCubit, HomeState>(
+                  builder: (context, state) => InkWell(
+                    onTap: () {
+                      HomeCubit.get(context).changeBottomNavigationCurrentIndex(1) ;
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Container(
+                        alignment: Alignment.center,
+                        padding: const EdgeInsets.all(10),
+                        width: 150,
+                        color: AppColors.kPrimaryColor,
+                        child: const FittedBox(
+                          child: CustomTextWidget(
+                            text: 'Add to card',
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -144,4 +109,5 @@ class FavoriteItemWidget extends StatelessWidget {
       ),
     );
   }
-}
+
+ }

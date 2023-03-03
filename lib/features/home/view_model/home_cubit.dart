@@ -9,6 +9,7 @@ import 'package:fruit_market_app/core/uitls/app_assets.dart';
 import 'package:fruit_market_app/features/auth/model/user_model.dart';
 import 'package:fruit_market_app/features/home/model/collection_model.dart';
 import 'package:fruit_market_app/features/home/presentation/home_view.dart';
+import 'package:fruit_market_app/features/home/services/local_database/local_data.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:print_color/print_color.dart';
 import '../../cart/presentation/views/cart_view.dart';
@@ -21,7 +22,8 @@ part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeRepository homeRepository;
-  HomeCubit(this.homeRepository) : super(HomeInitial());
+  LocalDatabase localDatabase;
+  HomeCubit(this.homeRepository, this.localDatabase) : super(HomeInitial());
   static HomeCubit get(context) => BlocProvider.of(context);
   int currentIndex = 1;
   int bottomNavigationCurrentIndex = 0;
@@ -47,6 +49,36 @@ class HomeCubit extends Cubit<HomeState> {
   void changeCategoryIndex(int index) {
     currentIndex = index;
     emit(ChangeCurrentIndexState());
+  }
+
+  int counter = 0;
+  void incrementCounter() {
+    ++counter;
+    emit(IncrementCounter());
+  }
+
+  bool isFavorite = false;
+  void isFavoriteItem(ProductModel productModel) {
+    isFavorite = !isFavorite;
+    addToFavorite(productModel);
+    emit(ChangeIsFavoriteState());
+  }
+
+  Future addToFavorite(ProductModel productModel) async {
+    if (isFavorite) {
+      localDatabase.insert(productModel: productModel);
+      emit(AddToFavoriteState());
+    } else {
+      localDatabase.deleteData(id: productModel.id.toString());
+      emit(DeleteFromFavoriteState());
+    }
+  }
+
+  void decrementCounter() {
+    if (counter > 0) {
+      --counter;
+      emit(DecrementCounter());
+    }
   }
 
   void changeBottomNavigationCurrentIndex(int index) {

@@ -22,5 +22,6 @@ class RegisterErrorState extends RegisterState {
 }
 
 class EmailVerifiedSuccessState extends RegisterState {}
+class EmailVerifiedErrorState extends RegisterState {}
 
 class EmailVerifiedLoadingState extends RegisterState {}

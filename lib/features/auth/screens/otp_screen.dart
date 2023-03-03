@@ -63,6 +63,8 @@ class EmailVerificationView extends StatelessWidget {
                 listener: (context, state) {
                   if (state is EmailVerifiedSuccessState) {
                     navigateOff(context, const MainView());
+                  } else if (state is EmailVerifiedErrorState) {
+                    print("error in verify");
                   }
                 },
                 builder: (context, state) {

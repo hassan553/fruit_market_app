@@ -1,4 +1,5 @@
 import 'package:fruit_market_app/features/auth/repository/login_repository.dart';
+import 'package:fruit_market_app/features/home/services/local_database/local_data.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../features/auth/repository/otp_repository.dart';
@@ -13,5 +14,6 @@ class ServicesLector {
     gitIt.registerLazySingleton(() => RegisterRepository());
     gitIt.registerLazySingleton(() => OTPRepository());
     gitIt.registerLazySingleton(() => HomeRepository());
+    gitIt.registerLazySingleton(() => LocalDatabase());
   }
 }

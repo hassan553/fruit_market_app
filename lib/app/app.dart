@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_market_app/core/services/services_lecator.dart';
 import 'package:fruit_market_app/core/uitls/app_theme.dart';
+import 'package:fruit_market_app/features/favourite/manager/favorite_cubit.dart';
 import 'package:fruit_market_app/features/home/model/product_model.dart';
 import 'package:fruit_market_app/features/home/presentation/main_view.dart';
 import 'package:fruit_market_app/features/home/presentation/vegetables/bloc/vegetables_bloc.dart';
@@ -33,10 +34,11 @@ class FruitMarket extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => HomeCubit(gitIt<HomeRepository>())
+          create: (context) => HomeCubit(gitIt<HomeRepository>(), gitIt<LocalDatabase>())
             ..getCurrentUser()
             ..getAllOrders(),
         ),
+        BlocProvider(create: (context) => FavoriteCubit(gitIt<LocalDatabase>())..getAllFavorite(),),
         BlocProvider(
           create: (context) => DryFruitBloc()
             ..add(GetIndehiscentDryFruitEvent())
@@ -65,6 +67,7 @@ class FruitMarket extends StatelessWidget {
         splitScreenMode: true,
         builder: (context, child) => MaterialApp(
           title: 'Fruit Market ',
+          
           theme: lightTheme(),
           debugShowCheckedModeBanner: false,
           locale: localController.initailLocal,

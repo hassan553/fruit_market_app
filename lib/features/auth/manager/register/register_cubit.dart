@@ -36,7 +36,15 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   Future sendEmailVerification() async {
-    await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+    emit(EmailVerifiedLoadingState());
+    try {
+      await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+      if (FirebaseAuth.instance.currentUser!.emailVerified) {
+        emit(EmailVerifiedSuccessState());
+      }
+    } catch (error) {
+      emit(EmailVerifiedErrorState());
+    }
   }
 
   Future checkEmailVerification() async {

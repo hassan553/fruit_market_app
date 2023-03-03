@@ -28,7 +28,7 @@ class LocalDatabase {
         );
       },
       onOpen: (database) {
-        getData(database);
+        getData();
       },
     );
   }
@@ -41,20 +41,22 @@ class LocalDatabase {
       await _database?.transaction((txn) async {
         await txn.rawInsert(
             'INSERT INTO product (id,image,name,star,price,nutrition)Values("${productModel.id},${productModel.image},${productModel.name},${productModel.star},${productModel.price},$nutrition,")');
+      }).then((value) {
+        Print.cyan('done insert');
       });
 
       return right('done');
     } catch (error) {
-      Print.cyan(error);
+      Print.black(error);
       return left(error.toString());
     }
   }
 
   List<ProductModel> result = [];
-  Future<Either<String, List<ProductModel>>> getData(Database? database) async {
+  Future<Either<String, List<ProductModel>>> getData() async {
     try {
       List<Map<String, Object?>>? r =
-          await database?.rawQuery('SELECT * FROM product');
+          await _database?.rawQuery('SELECT * FROM product');
 
       r!.map((element) {
         result.add(ProductModel.fromJson(element));

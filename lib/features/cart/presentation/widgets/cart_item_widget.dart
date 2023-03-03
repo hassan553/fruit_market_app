@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_market_app/features/home/view_model/home_cubit.dart';
 
 import '../../../../core/functions/globle_functions.dart';
 import '../../../../core/uitls/app_colors.dart';
 import '../../../widgets/custom_text.dart';
+import '../views/credit_card_view.dart';
+import '../views/upload_order.dart';
 
-class FavoriteItemWidget extends StatelessWidget {
-  const FavoriteItemWidget({super.key});
+class CardItemWidget extends StatelessWidget {
+  const CardItemWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,7 @@ class FavoriteItemWidget extends StatelessWidget {
       width: screenSize(context).width,
       height: 150,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Image.asset(
             'assets/images/imag1.png',
@@ -63,82 +67,68 @@ class FavoriteItemWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.sp,
                 ),
-                Row(
-                  children: [
-                    Container(
-                      width: 30.sp,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          width: 2,
-                          color: Colors.grey,
+                BlocBuilder<HomeCubit, HomeState>(
+                  builder: (context, state) => Row(
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          HomeCubit.get(context).decrementCounter();
+                        },
+                        child: Container(
+                          width: 30.sp,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              width: 2,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          child: const CustomTextWidget(
+                            text: '-',
+                          ),
                         ),
                       ),
-                      child: const CustomTextWidget(
-                        text: '-',
+                      SizedBox(
+                        width: 15.sp,
                       ),
-                    ),
-                    SizedBox(
-                      width: 15.sp,
-                    ),
-                    CustomTextWidget(
-                      text: '23',
-                      fontSize: 18.sp,
-                      color: Colors.grey,
-                    ),
-                    SizedBox(
-                      width: 15.sp,
-                    ),
-                    Container(
-                      width: 30.sp,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          width: 2,
-                          color: Colors.grey,
+                      CustomTextWidget(
+                        text: HomeCubit.get(context).counter.toString(),
+                        fontSize: 18.sp,
+                        color: Colors.grey,
+                      ),
+                      SizedBox(
+                        width: 15.sp,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          HomeCubit.get(context).incrementCounter();
+                        },
+                        child: Container(
+                          width: 30.sp,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              width: 2,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          child: const CustomTextWidget(
+                            text: '+',
+                          ),
                         ),
                       ),
-                      child: const CustomTextWidget(
-                        text: '+',
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                CustomTextWidget(
-                  text: '12 Per/Kg',
-                  fontSize: 16.sp,
-                  color: Colors.blue,
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      alignment: Alignment.center,
-                      padding: const EdgeInsets.all(4),
-                      width: 80.sp,
-                      color: AppColors.green,
-                      child: CustomTextWidget(
-                        text: 'buy now',
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
+                    ],
                   ),
                 ),
               ],
             ),
+          ),
+          CustomTextWidget(
+            text: '12 Per/Kg',
+            fontSize: 16.sp,
+            color: Colors.blue,
           ),
         ],
       ),

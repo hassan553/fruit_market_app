@@ -5,6 +5,16 @@ abstract class HomeState {}
 
 class HomeInitial extends HomeState {}
 
+class IncrementCounter extends HomeState {}
+
+class DecrementCounter extends HomeState {}
+
+class ChangeIsFavoriteState extends HomeState {}
+
+class AddToFavoriteState extends HomeState {}
+
+class DeleteFromFavoriteState extends HomeState {}
+
 class ChangeCurrentIndexState extends HomeState {}
 
 class GetUserData extends HomeState {
