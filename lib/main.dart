@@ -13,10 +13,6 @@ void main() async {
   await Firebase.initializeApp();
   ServicesLector.init();
   sharedPreferences = await SharedPreferences.getInstance();
-  // runApp(const FruitMarket());
-  runApp(
-  DevicePreview(
-    enabled: !kReleaseMode,
-    builder: (context) => FruitMarket(), // Wrap your app
-  ));
+   runApp(const FruitMarket());
+  
 }
