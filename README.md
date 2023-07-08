@@ -28,7 +28,7 @@ Welcome to the Fruit App, an e-commerce application built using Flutter. This ap
 
 To run the Fruit App locally on your machine, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/fruit-app.git`
+1. Clone the repository: `git clone https://github.com/hassan553/fruit_market_app.git`
 2. Open the project in your preferred Flutter development environment (e.g., Android Studio, Visual Studio Code).
 3. Install the necessary dependencies by running `flutter pub get` in the project directory.
 4. Connect a physical device or set up an emulator/simulator.
