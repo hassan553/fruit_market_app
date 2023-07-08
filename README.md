@@ -8,7 +8,6 @@
 ![iPhone 13 in 5 colors_Screenshot_2023-03-03-13-55-54-03_683d7ac7d4c34e529811a56b3692ae18](https://user-images.githubusercontent.com/74131893/232624384-e6d78f66-2b90-482b-ab1d-5f64f90a1e98.png)
 ![iPhone 13 in 5 colors_Screenshot_2023-03-03-13-56-24-89_683d7ac7d4c34e529811a56b3692ae18](https://user-images.githubusercontent.com/74131893/232624390-3f365441-2ec8-4300-83c8-599fcf4f4a90.png)
 ![iPhone 13 in 5 colors_Screenshot_2023-03-03-13-56-39-39_683d7ac7d4c34e529811a56b3692ae18](https://user-images.githubusercontent.com/74131893/232624398-68e0a098-ca7d-42b7-82dd-ca35d2fd832b.png)
-Certainly! Here's a suggested explanation you can include in your README file for your Flutter project:
 
 # Fruit App (E-Commerce)
 
