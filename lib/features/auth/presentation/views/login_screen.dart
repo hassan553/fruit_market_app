@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
 import 'package:fruit_market_app/features/auth/data/repository/login_repository.dart';
-import 'package:fruit_market_app/features/auth/presentation/screens/signup_screen.dart';
+import 'package:fruit_market_app/features/auth/presentation/views/signup_screen.dart';
 import 'package:fruit_market_app/features/home/presentation/main_view.dart';
 import 'package:fruit_market_app/main.dart';
 import 'package:print_color/print_color.dart';

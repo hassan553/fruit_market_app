@@ -14,16 +14,26 @@ class GetFromCartLoadingState extends CartState {}
 class GetFromCartErrorState extends CartState {}
 
 class GetFromCartSuccessState extends CartState {
-  List<ProductModel> list;
-  GetFromCartSuccessState(this.list);
+  final List<ProductModel> list;
+  const GetFromCartSuccessState(this.list);
 }
 
 class RemoveFromCartLoadingState extends CartState {}
 
-class RemoveFromCartErrorState extends CartState {}
-
-class RemoveFromCartSuccessState extends CartState {
-  List<ProductModel> list;
-  RemoveFromCartSuccessState(this.list);
+class RemoveFromCartErrorState extends CartState {
+  final String error;
+  const RemoveFromCartErrorState(this.error);
 }
 
+class RemoveFromCartSuccessState extends CartState {
+  const RemoveFromCartSuccessState();
+}
+
+class AddToCartLoadingState extends CartState {}
+
+class AddToCartSuccessState extends CartState {}
+
+class AddToCartErrorState extends CartState {
+  final String error;
+  const AddToCartErrorState(this.error);
+}

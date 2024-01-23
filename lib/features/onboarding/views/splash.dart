@@ -7,7 +7,7 @@ import 'package:fruit_market_app/features/widgets/custom_text.dart';
 import '../../../core/functions/globle_functions.dart';
 import '../../../core/uitls/app_assets.dart';
 import '../../../core/uitls/app_colors.dart';
-import '../../auth/presentation/screens/login_screen.dart';
+import '../../auth/presentation/views/login_screen.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

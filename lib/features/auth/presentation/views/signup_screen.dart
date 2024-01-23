@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
 import 'package:fruit_market_app/features/auth/data/repository/otp_repository.dart';
-import 'package:fruit_market_app/features/auth/presentation/screens/otp_screen.dart';
+import 'package:fruit_market_app/features/auth/presentation/views/otp_screen.dart';
 import '../../../../core/services/services_lecator.dart';
 import '../../../../core/uitls/app_colors.dart';
 import '../components/page_title_bar.dart';

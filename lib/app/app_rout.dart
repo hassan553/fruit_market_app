@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_market_app/features/home/presentation/home_view.dart';
-import '../features/auth/presentation/screens/login_screen.dart';
+import '../features/auth/presentation/views/login_screen.dart';
 
 class AppRouting {
   static String home = '/home';
