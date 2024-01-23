@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
-import '../../../core/uitls/app_colors.dart';
+import '../../../../core/uitls/app_colors.dart';
 
 class TextFieldContainer extends StatelessWidget {
   const TextFieldContainer({ Key? key,this.child }) : super(key: key);

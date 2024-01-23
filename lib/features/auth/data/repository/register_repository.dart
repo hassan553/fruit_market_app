@@ -22,7 +22,7 @@ class RegisterRepository {
           .set(userModel.toMap());
       return right(result);
     } catch (error) {
-      return left('Oops an Error');
+      return left(error.toString());
     }
   }
 }

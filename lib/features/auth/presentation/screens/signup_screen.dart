@@ -1,33 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
-import 'package:fruit_market_app/features/auth/repository/otp_repository.dart';
-import 'package:fruit_market_app/features/auth/screens/otp_screen.dart';
-import 'package:fruit_market_app/features/auth/screens/signup_screen.dart';
-import 'package:fruit_market_app/features/home/presentation/main_view.dart';
-import 'package:print_color/print_color.dart';
-
-import '../../../core/services/services_lecator.dart';
-import '../../../core/uitls/app_colors.dart';
-import '../../../main.dart';
+import 'package:fruit_market_app/features/auth/data/repository/otp_repository.dart';
+import 'package:fruit_market_app/features/auth/presentation/screens/otp_screen.dart';
+import '../../../../core/services/services_lecator.dart';
+import '../../../../core/uitls/app_colors.dart';
 import '../components/page_title_bar.dart';
 import '../components/under_part.dart';
 import '../components/upside.dart';
-import '../manager/register/register_cubit.dart';
-import '../repository/register_repository.dart';
+import '../../data/repository/register_repository.dart';
+import '../cubit/register_cubit/register_cubit.dart';
 import '../widgets/rounded_button.dart';
-import '../widgets/rounded_icon.dart';
 import '../widgets/rounded_input_field.dart';
 import '../widgets/rounded_password_field.dart';
 import 'login_screen.dart';
 
-class RegisterView extends StatelessWidget {
+class RegisterView extends StatefulWidget {
+  const RegisterView({Key? key}) : super(key: key);
+
+  @override
+  State<RegisterView> createState() => _RegisterViewState();
+}
+
+class _RegisterViewState extends State<RegisterView> {
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var nameController = TextEditingController();
   var formKey = GlobalKey<FormState>();
-
-  RegisterView({Key? key}) : super(key: key);
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    nameController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +48,7 @@ class RegisterView extends StatelessWidget {
             child: SingleChildScrollView(
               child: Stack(
                 children: [
-                  const Upside(
-                    imgUrl: 'assets/images/register.png',
-                  ),
+                  const Upside(imgUrl: 'assets/images/register.png'),
                   const PageTitleBar(title: 'Create New Account'),
                   Padding(
                     padding: const EdgeInsets.only(top: 320.0),
@@ -121,7 +125,7 @@ class RegisterView extends StatelessWidget {
                                     title: "Already have an account?",
                                     navigatorText: "Login here",
                                     onTap: () {
-                                      navigateOff(context, LoginView());
+                                      navigateOff(context, const LoginView());
                                     },
                                   ),
                                   const SizedBox(

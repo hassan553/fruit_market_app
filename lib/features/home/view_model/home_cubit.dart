@@ -6,7 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_market_app/core/uitls/app_assets.dart';
-import 'package:fruit_market_app/features/auth/model/user_model.dart';
+import 'package:fruit_market_app/features/auth/data/model/user_model.dart';
 import 'package:fruit_market_app/features/home/model/collection_model.dart';
 import 'package:fruit_market_app/features/home/presentation/home_view.dart';
 import 'package:fruit_market_app/features/home/services/local_database/local_data.dart';

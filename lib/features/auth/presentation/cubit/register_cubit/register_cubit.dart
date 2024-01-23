@@ -1,12 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../repository/otp_repository.dart';
-import '../../repository/register_repository.dart';
-
+import '../../../data/repository/otp_repository.dart';
+import '../../../data/repository/register_repository.dart';
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {

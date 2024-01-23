@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_market_app/features/auth/widgets/text_field_container.dart';
+import 'package:fruit_market_app/features/auth/presentation/widgets/text_field_container.dart';
 
-import '../../../core/uitls/app_colors.dart';
+import '../../../../core/uitls/app_colors.dart';
 
 class RoundedInputField extends StatelessWidget {
   const RoundedInputField(

@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
-import 'package:fruit_market_app/features/auth/repository/login_repository.dart';
-import 'package:fruit_market_app/features/auth/screens/signup_screen.dart';
+import 'package:fruit_market_app/features/auth/data/repository/login_repository.dart';
+import 'package:fruit_market_app/features/auth/presentation/screens/signup_screen.dart';
 import 'package:fruit_market_app/features/home/presentation/main_view.dart';
 import 'package:fruit_market_app/main.dart';
 import 'package:print_color/print_color.dart';
-import '../../../core/services/services_lecator.dart';
-import '../../../core/uitls/app_colors.dart';
+import '../../../../core/services/services_lecator.dart';
+import '../../../../core/uitls/app_colors.dart';
 import '../components/page_title_bar.dart';
 import '../components/under_part.dart';
 import '../components/upside.dart';
-import '../manager/login_cubit.dart';
+import '../cubit/login_cubit/login_cubit.dart';
 import '../widgets/rounded_button.dart';
 import '../widgets/rounded_input_field.dart';
 import '../widgets/rounded_password_field.dart';
 
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
+  const LoginView({Key? key}) : super(key: key);
+
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
-  LoginView({Key? key}) : super(key: key);
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -55,12 +68,13 @@ class LoginView extends StatelessWidget {
                             height: 35,
                           ),
                           BlocConsumer<LoginCubit, LoginState>(
-                            listener: (context, state) async{
+                            listener: (context, state) async {
                               if (state is LoginSuccessState) {
-                                Print.black(state.user.user?.uid);
-                               await sharedPreferences.setString(
-                                    'userId', state.user.user!.uid );
-                                navigateOff(context, const MainView());
+                                await sharedPreferences
+                                    .setString('userId', state.user.user!.uid)
+                                    .then((value) {
+                                  navigateOff(context, const MainView());
+                                });
                               }
                             },
                             builder: (context, state) => Form(
@@ -104,7 +118,7 @@ class LoginView extends StatelessWidget {
                                     title: "Don't have an account?",
                                     navigatorText: "Register",
                                     onTap: () {
-                                      navigateTo(context, RegisterView());
+                                      navigateTo(context, const RegisterView());
                                     },
                                   ),
                                   const SizedBox(

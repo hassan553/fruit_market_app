@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_market_app/core/uitls/app_colors.dart';
-import '../../auth/screens/login_screen.dart';
+import '../../auth/presentation/screens/login_screen.dart';
 import '../../widgets/custom_text.dart';
 import '../model_view/onboarding_cubit.dart';
 import '../widgets/dots_widget.dart';

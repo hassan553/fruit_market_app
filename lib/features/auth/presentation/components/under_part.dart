@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/uitls/app_colors.dart';
+import '../../../../core/uitls/app_colors.dart';
 
 class UnderPart extends StatelessWidget {
   const UnderPart(

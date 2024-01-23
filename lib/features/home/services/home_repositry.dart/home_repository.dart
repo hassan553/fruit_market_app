@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:async';
-import 'package:fruit_market_app/features/auth/model/user_model.dart';
+import 'package:fruit_market_app/features/auth/data/model/user_model.dart';
 import 'package:fruit_market_app/features/home/model/order_model.dart';
 import 'package:image_picker/image_picker.dart';
 

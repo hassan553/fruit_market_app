@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
 
-import '../../../core/uitls/app_colors.dart';
+import '../../../../core/uitls/app_colors.dart';
 
 class Upside extends StatelessWidget {
   const Upside({Key? key, required this.imgUrl}) : super(key: key);

@@ -6,7 +6,7 @@ import 'package:fruit_market_app/core/functions/globle_functions.dart';
 import 'package:fruit_market_app/features/widgets/custom_text.dart';
 
 import '../../../core/uitls/app_colors.dart';
-import '../../auth/widgets/rounded_button.dart';
+import '../../auth/presentation/widgets/rounded_button.dart';
 import '../model/product_model.dart';
 
 class DetailsView extends StatelessWidget {

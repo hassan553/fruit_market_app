@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/uitls/app_colors.dart';
+import '../../../../core/uitls/app_colors.dart';
 
 class PageTitleBar extends StatelessWidget {
   const PageTitleBar({ Key? key,required this.title }) : super(key: key);

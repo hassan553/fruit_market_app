@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
 import 'package:fruit_market_app/core/services/services_lecator.dart';
 import 'package:fruit_market_app/core/uitls/app_colors.dart';
 import 'package:fruit_market_app/features/home/presentation/main_view.dart';
-import 'package:fruit_market_app/features/widgets/custom_text.dart';
-import '../../../core/uitls/app_assets.dart';
-import '../manager/register/register_cubit.dart';
+import '../../../../core/uitls/app_assets.dart';
+import '../cubit/register_cubit/register_cubit.dart';
 
 class EmailVerificationView extends StatelessWidget {
-  String email;
+  final String email;
 
-  EmailVerificationView({super.key, required this.email});
+  const EmailVerificationView({super.key, required this.email});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +41,7 @@ class EmailVerificationView extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: FittedBox(
                   child: Text(
-                    'You have entered ${email} as the email address for your account',
+                    'You have entered $email as the email address for your account',
                     style: const TextStyle(
                       fontSize: 18,
                     ),

@@ -36,7 +36,6 @@ dependencies:
   conditional_builder_null_safety: ^0.0.6
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
-  device_preview: ^1.1.0
   dots_indicator: ^2.1.0
   email_auth: ^1.0.0
   equatable: ^2.0.5
@@ -47,7 +46,7 @@ dependencies:
   firebase_storage: ^10.3.1
   flutter:
     sdk: flutter
-  flutter_auth: ^0.0.1
+  
   flutter_bloc: ^8.1.1
   flutter_credit_card: ^3.0.5
   flutter_facebook_auth: ^3.5.0
