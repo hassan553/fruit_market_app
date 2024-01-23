@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruit_market_app/features/home/presentation/main_view.dart';
-import 'package:fruit_market_app/features/onboarding/views/onboarding_view.dart';
+import 'package:fruit_market_app/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:fruit_market_app/features/widgets/custom_text.dart';
-
-import '../../../core/functions/globle_functions.dart';
-import '../../../core/uitls/app_assets.dart';
-import '../../../core/uitls/app_colors.dart';
-import '../../auth/presentation/views/login_screen.dart';
+import '../../../../core/functions/globle_functions.dart';
+import '../../../../core/uitls/app_colors.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -21,16 +17,15 @@ class _SplashViewState extends State<SplashView>
   late AnimationController animationController;
   @override
   void dispose() {
-    // TODO: implement dispose
-    super.dispose();
     animationController.dispose();
+    super.dispose();
   }
 
   @override
   void initState() {
     Future.delayed(
       const Duration(seconds: 3),
-      () => navigateOff(context,const  OnBoardingView()),
+      () => navigateOff(context, const OnBoardingView()),
     );
     animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 1));

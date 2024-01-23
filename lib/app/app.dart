@@ -15,7 +15,7 @@ import '../features/home/presentation/dry_fruit/bloc/dry_fruit_bloc.dart';
 import '../features/home/presentation/fruit/bloc/fruit_bloc.dart';
 import '../features/home/services/home_repositry.dart/home_repository.dart';
 import '../features/home/view_model/home_cubit.dart';
-import '../features/onboarding/views/splash.dart';
+import '../features/onboarding/presentation/views/splash.dart';
 import '../localization/local_controller.dart';
 import 'package:get/get.dart';
 

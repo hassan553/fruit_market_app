@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../core/uitls/app_colors.dart';
-import '../model/onboarding_model.dart';
+import '../../../../core/uitls/app_colors.dart';
+import '../../data/model/onboarding_model.dart';
 
-import '../../../core/functions/globle_functions.dart';
-import '../../widgets/custom_text.dart';
+import '../../../../core/functions/globle_functions.dart';
+import '../../../widgets/custom_text.dart';
 
 class PageViewWidget extends StatelessWidget {
   final PageController pageController;
@@ -54,7 +53,7 @@ class PageViewWidget extends StatelessWidget {
                     CustomTextWidget(
                       text: onboardingList[index].title,
                       fontSize: 25,
-                      color: Color.fromARGB(255, 10, 105, 66),
+                      color: const Color.fromARGB(255, 10, 105, 66),
                       fontWeight: FontWeight.bold,
                     ),
                     const SizedBox(
