@@ -2,19 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
-import 'package:fruit_market_app/core/uitls/app_colors.dart';
 import 'package:fruit_market_app/features/cart/presentation/views/cart_view.dart';
 import 'package:fruit_market_app/features/favourite/presentation/views/favourite_view.dart';
 import 'package:fruit_market_app/features/setting/presentation/views/help_view.dart';
 import 'package:fruit_market_app/features/setting/presentation/widgets/list_tile_widget.dart';
-import 'package:fruit_market_app/features/widgets/custom_text.dart';
-import 'package:fruit_market_app/features/widgets/divider_widget.dart';
-import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
-
 import '../../../home/view_model/home_cubit.dart';
 import '../widgets/build_app_bar_widget.dart';
-import '../widgets/languages_widget.dart';
 import 'order_view.dart';
 
 class SettingView extends StatelessWidget {
@@ -28,13 +22,10 @@ class SettingView extends StatelessWidget {
         return Scaffold(
           body: Column(children: [
             BuildAppBarWidget(
-              image: cubit.userModel.image,
-              name: cubit.userModel.name,
-              email: cubit.userModel.email,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
+                image: cubit.userModel.image,
+                name: cubit.userModel.name,
+                email: cubit.userModel.email),
+            const SizedBox(height: 20),
             Expanded(
               child: ListView(
                 physics: const BouncingScrollPhysics(),
@@ -42,33 +33,21 @@ class SettingView extends StatelessWidget {
                   ListTileWidget(
                     iconData: FontAwesome.bag_shopping,
                     text: 'My Orders',
-                    onTap: () {
-                      navigateTo(context, const OrderView());
-                    },
+                    onTap: () => navigateTo(context, const OrderView()),
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  const SizedBox(height: 15),
                   ListTileWidget(
                     iconData: FontAwesome.heart_fill,
                     text: 'Favorites',
-                    onTap: () {
-                      navigateTo(context, const FavoriteView());
-                    },
+                    onTap: () => navigateTo(context, const FavoriteView()),
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  const SizedBox(height: 15),
                   ListTileWidget(
                     iconData: FontAwesome.cart_shopping,
                     text: 'My Cart',
-                    onTap: () {
-                      navigateTo(context, const CartView());
-                    },
+                    onTap: () => navigateTo(context, const CartView()),
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  const SizedBox(height: 15),
                   ListTileWidget(
                     iconData: FontAwesome.share,
                     text: 'Refer a Friend',
@@ -80,13 +59,9 @@ class SettingView extends StatelessWidget {
                   ListTileWidget(
                     iconData: Icons.help,
                     text: 'Help',
-                    onTap: () {
-                      navigateTo(context, const HelpView());
-                    },
+                    onTap: () => navigateTo(context, const HelpView()),
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  const SizedBox(height: 15),
                   ListTileWidget(
                     iconData: Icons.logout,
                     text: 'Logout',

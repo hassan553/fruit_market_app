@@ -16,14 +16,9 @@ class OrderItemWidget extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              'assets/images/imag1.png',
-              fit: BoxFit.fill,
-              height: 150,
-            ),
-            SizedBox(
-              width: 10.sp,
-            ),
+            Image.asset('assets/images/imag1.png',
+                fit: BoxFit.fill, height: 150),
+            SizedBox(width: 10.sp),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,9 +29,7 @@ class OrderItemWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
-                  SizedBox(
-                    height: 5.sp,
-                  ),
+                  SizedBox(height: 5.sp),
                   Row(
                     children: List.generate(
                       4,
@@ -47,18 +40,14 @@ class OrderItemWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 8.sp,
-                  ),
+                  SizedBox(height: 8.sp),
                   CustomTextWidget(
                     text: 'Rate this item',
                     fontSize: 14.sp,
                     color: Colors.grey,
                     maxLines: 2,
                   ),
-                  SizedBox(
-                    height: 5.sp,
-                  ),
+                  SizedBox(height: 5.sp),
                   Text(
                     'Delivered on 24 Feb 2021.',
                     style: TextStyle(
@@ -71,11 +60,7 @@ class OrderItemWidget extends StatelessWidget {
                 ],
               ),
             ),
-            Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.black,
-              size: 25.sp,
-            ),
+            Icon(Icons.arrow_forward_ios, color: Colors.black, size: 25.sp),
           ],
         ),
       ),

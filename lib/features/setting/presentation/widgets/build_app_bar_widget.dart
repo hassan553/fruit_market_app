@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../core/uitls/app_colors.dart';
 import '../../../home/view_model/home_cubit.dart';
@@ -27,9 +24,7 @@ class BuildAppBarWidget extends StatelessWidget {
       color: AppColors.kPrimaryColor,
       child: Column(
         children: [
-          const SizedBox(
-            height: 40,
-          ),
+          const SizedBox(height: 40),
           BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) => Align(
               alignment: Alignment.center,
@@ -45,9 +40,7 @@ class BuildAppBarWidget extends StatelessWidget {
                     ),
                   ),
                   InkWell(
-                    onTap: () async {
-                      HomeCubit.get(context).getImageGallery();
-                    },
+                    onTap: () => HomeCubit.get(context).getImageGallery(),
                     child: const CircleAvatar(
                       radius: 18,
                       backgroundColor: AppColors.white,
@@ -63,26 +56,20 @@ class BuildAppBarWidget extends StatelessWidget {
           ),
           Column(
             children: [
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
               CustomTextWidget(
                 text: name,
                 color: Colors.white,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              const SizedBox(height: 5),
               CustomTextWidget(
                 text: email,
                 color: Colors.white,
                 fontSize: 18,
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
             ],
           ),
         ],

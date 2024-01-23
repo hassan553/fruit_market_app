@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttericon/font_awesome_icons.dart';
 import 'package:fruit_market_app/features/widgets/custom_text.dart';
 import 'package:fruit_market_app/localization/local_controller.dart';
 import 'package:get/get.dart';
@@ -24,9 +23,7 @@ languagesWidget(context) {
         actions: [
           MaterialButton(
             color: Colors.red,
-            onPressed: () {
-              pop(context);
-            },
+            onPressed: () => pop(context),
             child: const CustomTextWidget(text: 'Close'),
           ),
         ],
@@ -37,9 +34,7 @@ languagesWidget(context) {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
-                onTap: () {
-                  controller.changeLanguage('ar');
-                },
+                onTap: () => controller.changeLanguage('ar'),
                 child: Text(
                   'Arabic ',
                   textAlign: TextAlign.center,
@@ -51,9 +46,7 @@ languagesWidget(context) {
                 ),
               ),
               InkWell(
-                onTap: () {
-                  controller.changeLanguage('en');
-                },
+                onTap: () => controller.changeLanguage('en'),
                 child: Text(
                   'English ',
                   textAlign: TextAlign.center,
