@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../core/uitls/app_colors.dart';
-import '../../../home/view_model/home_cubit.dart';
+import '../../../home/presentation/cubit/home_cubit.dart';
 import '../../../widgets/custom_text.dart';
 
 class BuildAppBarWidget extends StatelessWidget {

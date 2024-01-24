@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../../../core/enums/app_state.dart';
-import '../../../model/collection_model.dart';
-import '../../../model/product_model.dart';
-import '../../../services/home_repositry.dart/fruit_repositry.dart';
+import '../../../data/model/collection_model.dart';
+import '../../../data/model/product_model.dart';
+import '../../../data/home_repositry.dart/fruit_repositry.dart';
 
 part 'fruit_event.dart';
 part 'fruit_state.dart';

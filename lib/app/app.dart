@@ -1,20 +1,17 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_market_app/core/services/services_lecator.dart';
 import 'package:fruit_market_app/core/uitls/app_theme.dart';
-import 'package:fruit_market_app/features/favourite/manager/favorite_cubit.dart';
-import 'package:fruit_market_app/features/home/model/product_model.dart';
-import 'package:fruit_market_app/features/home/presentation/main_view.dart';
 import 'package:fruit_market_app/features/home/presentation/vegetables/bloc/vegetables_bloc.dart';
-import 'package:fruit_market_app/features/home/services/local_database/local_data.dart';
-import 'package:print_color/print_color.dart';
+import 'package:fruit_market_app/features/home/data/local_database/local_data.dart';
+import '../features/favourite/cubit/favorite_cubit.dart';
+import '../features/home/presentation/cubit/home_cubit.dart';
 import '../features/home/presentation/dry_fruit/bloc/dry_fruit_bloc.dart';
 import '../features/home/presentation/fruit/bloc/fruit_bloc.dart';
-import '../features/home/services/home_repositry.dart/home_repository.dart';
-import '../features/home/view_model/home_cubit.dart';
+import '../features/home/data/home_repositry.dart/home_repository.dart';
+import '../features/home/presentation/views/main_view.dart';
 import '../features/onboarding/presentation/views/splash.dart';
 import '../localization/local_controller.dart';
 import 'package:get/get.dart';
@@ -28,11 +25,15 @@ class FruitMarket extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => HomeCubit(gitIt<HomeRepository>(), gitIt<LocalDatabase>())
-            ..getCurrentUser()
-            ..getAllOrders(),
+          create: (context) =>
+              HomeCubit(gitIt<HomeRepository>(), gitIt<HomeLocalDatabase>())
+                ..getCurrentUser()
+                ..getAllOrders(),
         ),
-        BlocProvider(create: (context) => FavoriteCubit(gitIt<LocalDatabase>())..getAllFavorite(),),
+        BlocProvider(
+          create: (context) =>
+              FavoriteCubit(gitIt<HomeLocalDatabase>())..getAllFavorite(),
+        ),
         BlocProvider(
           create: (context) => DryFruitBloc()
             ..add(GetIndehiscentDryFruitEvent())

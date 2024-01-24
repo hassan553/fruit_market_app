@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_offline/flutter_offline.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
-import 'package:fruit_market_app/features/home/view_model/home_cubit.dart';
-import 'package:fruit_market_app/features/home/widget/custom_bottom_bar.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:fruit_market_app/features/home/presentation/widget/custom_bottom_bar.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../core/uitls/app_colors.dart';
+import '../cubit/home_cubit.dart';
+
 
 class MainView extends StatefulWidget {
   const MainView({super.key});

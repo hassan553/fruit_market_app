@@ -6,21 +6,21 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:async';
 import 'package:fruit_market_app/features/auth/data/model/user_model.dart';
-import 'package:fruit_market_app/features/home/model/order_model.dart';
+import 'package:fruit_market_app/features/home/data/model/order_model.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../model/product_model.dart';
+import '../model/product_model.dart';
 
 class HomeRepository {
-  String userId = FirebaseAuth.instance.currentUser!.uid;
-  var _firebaseFireStore = FirebaseFirestore.instance;
+  final String _userId = FirebaseAuth.instance.currentUser!.uid;
+  final FirebaseFirestore _firebaseFireStore = FirebaseFirestore.instance;
   File? profileImage;
   var pickerGallery = ImagePicker();
   String url = '';
   Future<Either<String, UserModel>> getCurrentUserData() async {
     try {
       var response =
-          await _firebaseFireStore.collection('users').doc(userId).get();
+          await _firebaseFireStore.collection('users').doc(_userId).get();
       var userModel = UserModel.fromJson(response.data()!);
       return right(userModel);
     } catch (error) {
@@ -33,7 +33,7 @@ class HomeRepository {
     try {
       var response = await _firebaseFireStore
           .collection('users')
-          .doc(userId)
+          .doc(_userId)
           .collection('orders')
           .add(productModel.toJson());
       return right(true);
@@ -47,12 +47,12 @@ class HomeRepository {
       List<OrderModel> ordersList = [];
       QuerySnapshot<Map<String, dynamic>> response = await _firebaseFireStore
           .collection('users')
-          .doc(userId)
+          .doc(_userId)
           .collection('orders')
           .get();
-      response.docs.forEach((element) {
+      for (var element in response.docs) {
         ordersList.add(OrderModel.fromJson(element.data()));
-      });
+      }
       return right(ordersList);
     } catch (error) {
       return left(error.toString());
@@ -76,17 +76,16 @@ class HomeRepository {
       final ref = FirebaseStorage.instance
           .ref()
           .child('userImages')
-          .child('$userId.jpg');
+          .child('$_userId.jpg');
       await ref.putFile(profileImage!);
       url = await ref.getDownloadURL();
-      print(url);
     } catch (error) {}
   }
 
   Future updateUserImage() async {
     await FirebaseFirestore.instance
         .collection('users')
-        .doc(userId)
+        .doc(_userId)
         .update({'image': url}).then((value) {});
   }
 }

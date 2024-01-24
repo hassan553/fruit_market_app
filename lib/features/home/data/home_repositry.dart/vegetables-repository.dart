@@ -1,15 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:print_color/print_color.dart';
 
-class DryFruitsRepository {
+class VegetablesRepository {
   Future<Either<String, DocumentSnapshot<Map<String, dynamic>>>>
-      getIndehiscentDryProducts() async {
+      getOrganicVegetablesProducts() async {
     late dynamic value;
     try {
       await FirebaseFirestore.instance
-          .collection('dry_fruit')
-          .doc('indehiscent')
+          .collection('vegetables')
+          .doc('organic_vegetables')
           .get()
           .then((v) {
         value = v;
@@ -19,13 +18,14 @@ class DryFruitsRepository {
       return left(error.toString());
     }
   }
-Future<Either<String, DocumentSnapshot<Map<String, dynamic>>>>
-      getDehiscentDryProducts() async {
+
+  Future<Either<String, DocumentSnapshot<Map<String, dynamic>>>>
+      getMixedVegetablesProducts() async {
     late dynamic value;
     try {
       await FirebaseFirestore.instance
-          .collection('dry_fruit')
-          .doc('dehiscent')
+          .collection('vegetables')
+          .doc('mixed_vegetables')
           .get()
           .then((v) {
         value = v;
@@ -35,32 +35,32 @@ Future<Either<String, DocumentSnapshot<Map<String, dynamic>>>>
       return left(error.toString());
     }
   }
+
   Future<Either<String, DocumentSnapshot<Map<String, dynamic>>>>
-      getMixedDryProducts() async {
+      getRootVegetablesProducts() async {
     late dynamic value;
     try {
       await FirebaseFirestore.instance
-          .collection('dry_fruit')
-          .doc('mixed_dry')
+          .collection('vegetables')
+          .doc('root_vegetables')
           .get()
           .then((v) {
         value = v;
       });
+
       return right(value);
     } catch (error) {
-      print(error.toString());
       return left(error.toString());
     }
   }
 
-
   Future<Either<String, DocumentSnapshot<Map<String, dynamic>>>>
-      getKashmiriDryFruitProducts() async {
+      getAlliumVegetablesProducts() async {
     late dynamic value;
     try {
       await FirebaseFirestore.instance
-          .collection('dry_fruit')
-          .doc('kashmiri')
+          .collection('vegetables')
+          .doc('allium_vegetables')
           .get()
           .then((v) {
         value = v;

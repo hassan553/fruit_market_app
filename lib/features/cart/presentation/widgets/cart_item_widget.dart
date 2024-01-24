@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruit_market_app/features/home/view_model/home_cubit.dart';
 import '../../../../core/functions/globle_functions.dart';
 import '../../../../core/uitls/app_colors.dart';
+import '../../../home/presentation/cubit/home_cubit.dart';
 import '../../../widgets/custom_text.dart';
 
 class CardItemWidget extends StatelessWidget {

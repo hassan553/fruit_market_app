@@ -7,7 +7,7 @@ class ProductModel extends Equatable {
   final int star;
   final int price;
   final List nutrition;
-  ProductModel({
+  const ProductModel({
     required this.id,
     required this.name,
     required this.nutrition,
@@ -17,16 +17,15 @@ class ProductModel extends Equatable {
   });
   factory ProductModel.fromJson(Map json) => ProductModel(
         name: json['name'],
-        nutrition: json['nutrition']??[],
+        nutrition: json['nutrition'] ?? [],
         price: json['price'],
         image: json['image'],
         star: json['star'],
-                id: json['id'],
-
+        id: json['id'],
       );
-  Map<String,dynamic> toJson() {
+  Map<String, dynamic> toJson() {
     return {
-      'id':id,
+      'id': id,
       'name': name,
       'image': image,
       'price': price,
@@ -34,8 +33,7 @@ class ProductModel extends Equatable {
       'star': star,
     };
   }
-  
+
   @override
-  // TODO: implement props
-  List<Object?> get props => [id,name,image,price,nutrition,star];
+  List<Object?> get props => [id, name, image, price, nutrition, star];
 }

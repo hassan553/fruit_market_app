@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:fruit_market_app/features/home/model/product_model.dart';
+import 'package:fruit_market_app/features/home/data/model/product_model.dart';
 import '../../../../core/constants/constants.dart';
 
 class CartRepository {

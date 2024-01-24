@@ -4,13 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
-import 'package:fruit_market_app/features/home/model/product_model.dart';
-import 'package:fruit_market_app/features/home/presentation/details_view.dart';
-import 'package:fruit_market_app/features/home/services/local_database/local_data.dart';
-import 'package:fruit_market_app/features/home/view_model/home_cubit.dart';
-import 'package:print_color/print_color.dart';
-import '../../../core/uitls/app_colors.dart';
-import '../../widgets/custom_text.dart';
+import 'package:fruit_market_app/features/home/data/model/product_model.dart';
+import '../../../../core/uitls/app_colors.dart';
+import '../../../widgets/custom_text.dart';
+import '../cubit/home_cubit.dart';
+import '../views/details_view.dart';
 
 class ProductItemWidget extends StatelessWidget {
   final String image;
@@ -53,12 +51,7 @@ class ProductItemWidget extends StatelessWidget {
                       right: 0,
                       child: InkWell(
                         onTap: () {
-                          navigateTo(
-                            context,
-                            DetailsView(
-                              model: productModel,
-                            ),
-                          );
+                          navigateTo(context, DetailsView(model: productModel));
                         },
                         child: InkWell(
                           onTap: () {
@@ -68,12 +61,11 @@ class ProductItemWidget extends StatelessWidget {
                             backgroundColor: AppColors.kPrimaryColor,
                             radius: 15.sp,
                             child: Icon(
-                              HomeCubit.get(context).isFavorite
-                                  ? Icons.check
-                                  : FeatherIcons.heart,
-                              color: Colors.red,
-                              size: 16.sp,
-                            ),
+                                HomeCubit.get(context).isFavorite
+                                    ? Icons.check
+                                    : FeatherIcons.heart,
+                                color: Colors.red,
+                                size: 16.sp),
                           ),
                         ),
                       ),
@@ -81,9 +73,7 @@ class ProductItemWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 5.sp,
-              ),
+              SizedBox(height: 5.sp),
               Row(
                 children: [
                   for (int i = 0; i < productModel.star.toInt(); i++) ...[
@@ -95,18 +85,14 @@ class ProductItemWidget extends StatelessWidget {
                   ]
                 ],
               ),
-              SizedBox(
-                height: 5.sp,
-              ),
+              SizedBox(height: 5.sp),
               CustomTextWidget(
                 text: productModel.name,
                 fontSize: 12.sp,
                 color: Colors.grey,
                 fontWeight: FontWeight.bold,
               ),
-              SizedBox(
-                height: 5.sp,
-              ),
+              SizedBox(height: 5.sp),
               RichText(
                 text: TextSpan(
                   text: productModel.price.toString(),

@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruit_market_app/core/functions/globle_functions.dart';
-import 'package:fruit_market_app/core/uitls/app_assets.dart';
 import 'package:fruit_market_app/core/uitls/app_colors.dart';
-import 'package:fruit_market_app/features/favourite/manager/favorite_cubit.dart';
 import 'package:fruit_market_app/features/widgets/custom_text.dart';
+import '../../cubit/favorite_cubit.dart';
 import '../widgets/favorite_item_widget.dart';
 
 class FavoriteView extends StatelessWidget {

@@ -1,28 +1,22 @@
 import 'dart:async';
-import 'dart:io';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_market_app/core/uitls/app_assets.dart';
 import 'package:fruit_market_app/features/auth/data/model/user_model.dart';
-import 'package:fruit_market_app/features/home/model/collection_model.dart';
-import 'package:fruit_market_app/features/home/presentation/home_view.dart';
-import 'package:fruit_market_app/features/home/services/local_database/local_data.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:fruit_market_app/features/home/data/local_database/local_data.dart';
 import 'package:print_color/print_color.dart';
-import '../../cart/presentation/views/cart_view.dart';
-import '../../favourite/presentation/views/favourite_view.dart';
-import '../../setting/presentation/views/setting_view.dart';
-import '../model/order_model.dart';
-import '../model/product_model.dart';
-import '../services/home_repositry.dart/home_repository.dart';
+import '../../../cart/presentation/views/cart_view.dart';
+import '../../../favourite/presentation/views/favourite_view.dart';
+import '../../../setting/presentation/views/setting_view.dart';
+import '../../data/home_repositry.dart/home_repository.dart';
+import '../../data/model/order_model.dart';
+import '../../data/model/product_model.dart';
+import '../views/home_view.dart';
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeRepository homeRepository;
-  LocalDatabase localDatabase;
+  HomeLocalDatabase localDatabase;
   HomeCubit(this.homeRepository, this.localDatabase) : super(HomeInitial());
   static HomeCubit get(context) => BlocProvider.of(context);
   int currentIndex = 1;
@@ -32,19 +26,14 @@ class HomeCubit extends Cubit<HomeState> {
     HomeView(),
     CartView(),
     FavoriteView(),
-    SettingView(),
+    SettingView()
   ];
-  List<AppBar> appBarList = [
-    AppBar(),
-    AppBar(),
-    AppBar(),
-    AppBar(),
-  ];
+  List<AppBar> appBarList = [AppBar(), AppBar(), AppBar(), AppBar()];
   List<String> carouselImagesList = [
     AppAssets.images4,
     AppAssets.images5,
     AppAssets.images6,
-    AppAssets.images7,
+    AppAssets.images7
   ];
   void changeCategoryIndex(int index) {
     currentIndex = index;

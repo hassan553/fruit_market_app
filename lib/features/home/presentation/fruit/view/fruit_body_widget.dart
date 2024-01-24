@@ -10,9 +10,9 @@ class FruitBodyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       mainAxisAlignment: MainAxisAlignment.start,
-      children: const [
+      children: [
         OrganicFruitsWidget(),
         SizedBox(height: 15),
         MixedFruitBody(),

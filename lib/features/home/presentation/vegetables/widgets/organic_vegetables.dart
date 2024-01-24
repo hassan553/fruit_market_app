@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_market_app/features/home/presentation/vegetables/bloc/vegetables_bloc.dart';
 import '../../../../../core/enums/app_state.dart';
 import '../../../../../core/functions/globle_functions.dart';
-import '../../../widget/organic_fruit_text_widget.dart';
-import '../../../widget/product_item.dart';
-import '../../details_view.dart';
+import '../../views/details_view.dart';
+import '../../widget/organic_fruit_text_widget.dart';
+import '../../widget/product_item.dart';
 
 class OrganicVegetablesBody extends StatelessWidget {
   const OrganicVegetablesBody({super.key});

@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_market_app/features/cart/data/repo/cart_repo.dart';
-import 'package:fruit_market_app/features/home/model/product_model.dart';
+import 'package:fruit_market_app/features/home/data/model/product_model.dart';
 part 'cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {

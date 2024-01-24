@@ -1,30 +1,19 @@
 import 'dart:convert';
-
-import 'package:dartz/dartz.dart';
-import 'package:dartz/dartz.dart';
 import 'package:dartz/dartz.dart';
 import 'package:print_color/print_color.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../../model/product_model.dart';
+import '../model/product_model.dart';
 
-class LocalDatabase {
+class HomeLocalDatabase {
   Database? _database;
   void create() async {
     _database = await openDatabase(
       'Products.db',
       version: 1,
       onCreate: (database, version) {
-        database
-            .execute(
+        database.execute(
           'create table product (id integer ,image text ,name text , star integer ,price integer ,nutrition text )',
-        )
-            .then((value) {
-          print('create database products  successfully ');
-        }).catchError(
-          (onError) {
-            print(onError.toString());
-          },
         );
       },
       onOpen: (database) {
@@ -41,13 +30,10 @@ class LocalDatabase {
       await _database?.transaction((txn) async {
         await txn.rawInsert(
             'INSERT INTO product (id,image,name,star,price,nutrition)Values("${productModel.id},${productModel.image},${productModel.name},${productModel.star},${productModel.price},$nutrition,")');
-      }).then((value) {
-        Print.cyan('done insert');
       });
 
       return right('done');
     } catch (error) {
-      Print.black(error);
       return left(error.toString());
     }
   }
@@ -68,9 +54,7 @@ class LocalDatabase {
     }
   }
 
-  void deleteData({
-    required String id,
-  }) {
+  void deleteData({required String id}) {
     try {
       _database?.delete('product', where: id);
     } catch (error) {}

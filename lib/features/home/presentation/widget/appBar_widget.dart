@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/custom_text.dart';
+import '../../../widgets/custom_text.dart';
 
 PreferredSizeWidget appBarWidget() {
   return PreferredSize(

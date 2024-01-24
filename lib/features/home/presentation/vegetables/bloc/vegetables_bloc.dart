@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:fruit_market_app/features/home/services/home_repositry.dart/vegetables-repository.dart';
+import 'package:fruit_market_app/features/home/data/home_repositry.dart/vegetables-repository.dart';
 import 'package:print_color/print_color.dart';
 import '../../../../../core/enums/app_state.dart';
-import '../../../model/collection_model.dart';
-import '../../../model/product_model.dart';
+import '../../../data/model/collection_model.dart';
+import '../../../data/model/product_model.dart';
 part 'vegetables_event.dart';
 part 'vegetables_state.dart';
 

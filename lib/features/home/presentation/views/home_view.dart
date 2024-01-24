@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruit_market_app/features/home/model/product_model.dart';
+import 'package:fruit_market_app/features/home/data/model/product_model.dart';
 import 'package:fruit_market_app/features/home/presentation/vegetables/views/vegetables_body.dart';
-import 'package:fruit_market_app/features/home/services/local_database/local_data.dart';
+import 'package:fruit_market_app/features/home/data/local_database/local_data.dart';
 import 'package:fruit_market_app/features/widgets/category_app_list.dart';
 import 'package:print_color/print_color.dart';
-import '../../widgets/custom_cursole_slider.dart';
-import '../view_model/home_cubit.dart';
-import 'dry_fruit/views/dry_fruits_body.dart';
-import 'fruit/view/fruit_body_widget.dart';
+
+import '../../../widgets/custom_cursole_slider.dart';
+import '../cubit/home_cubit.dart';
+import '../dry_fruit/views/dry_fruits_body.dart';
+import '../fruit/view/fruit_body_widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -23,9 +24,9 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    LocalDatabase().create();
-    LocalDatabase().insert(
-      productModel: ProductModel(
+    HomeLocalDatabase().create();
+    HomeLocalDatabase().insert(
+      productModel: const ProductModel(
         id: 1,
         name: 'name',
         nutrition: ['qw', 'qw'],

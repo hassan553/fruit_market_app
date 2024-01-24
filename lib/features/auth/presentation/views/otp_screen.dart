@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
 import 'package:fruit_market_app/core/services/services_lecator.dart';
 import 'package:fruit_market_app/core/uitls/app_colors.dart';
-import 'package:fruit_market_app/features/home/presentation/main_view.dart';
 import '../../../../core/uitls/app_assets.dart';
+import '../../../home/presentation/views/main_view.dart';
 import '../cubit/register_cubit/register_cubit.dart';
 
 class EmailVerificationView extends StatelessWidget {

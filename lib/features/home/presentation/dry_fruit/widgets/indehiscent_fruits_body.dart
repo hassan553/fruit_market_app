@@ -3,12 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_market_app/core/enums/app_state.dart';
 import 'package:fruit_market_app/features/home/presentation/dry_fruit/bloc/dry_fruit_bloc.dart';
-import 'package:fruit_market_app/features/home/services/local_database/local_data.dart';
-
 import '../../../../../core/functions/globle_functions.dart';
-import '../../../widget/organic_fruit_text_widget.dart';
-import '../../../widget/product_item.dart';
-import '../../details_view.dart';
+import '../../views/details_view.dart';
+import '../../widget/organic_fruit_text_widget.dart';
+import '../../widget/product_item.dart';
 
 class IndehiscentDryFruitBody extends StatelessWidget {
   const IndehiscentDryFruitBody({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/functions/globle_functions.dart';
-import '../../widgets/custom_text.dart';
+import '../../../../core/functions/globle_functions.dart';
+import '../../../widgets/custom_text.dart';
 
 class FruitTitleTextWidget extends StatelessWidget {
   final String title;

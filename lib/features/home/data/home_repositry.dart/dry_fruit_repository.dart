@@ -1,15 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:print_color/print_color.dart';
 
-class VegetablesRepository {
+class DryFruitsRepository {
   Future<Either<String, DocumentSnapshot<Map<String, dynamic>>>>
-      getOrganicVegetablesProducts() async {
+      getIndehiscentDryProducts() async {
     late dynamic value;
     try {
       await FirebaseFirestore.instance
-          .collection('vegetables')
-          .doc('organic_vegetables')
+          .collection('dry_fruit')
+          .doc('indehiscent')
           .get()
           .then((v) {
         value = v;
@@ -21,35 +20,16 @@ class VegetablesRepository {
   }
 
   Future<Either<String, DocumentSnapshot<Map<String, dynamic>>>>
-      getMixedVegetablesProducts() async {
+      getDehiscentDryProducts() async {
     late dynamic value;
     try {
       await FirebaseFirestore.instance
-          .collection('vegetables')
-          .doc('mixed_vegetables')
+          .collection('dry_fruit')
+          .doc('dehiscent')
           .get()
           .then((v) {
         value = v;
       });
-      return right(value);
-    } catch (error) {
-      
-      return left(error.toString());
-    }
-  }
-
-  Future<Either<String, DocumentSnapshot<Map<String, dynamic>>>>
-      getRootVegetablesProducts() async {
-    late dynamic value;
-    try {
-      await FirebaseFirestore.instance
-          .collection('vegetables')
-          .doc('root_vegetables')
-          .get()
-          .then((v) {
-        value = v;
-      });
-
       return right(value);
     } catch (error) {
       return left(error.toString());
@@ -57,12 +37,30 @@ class VegetablesRepository {
   }
 
   Future<Either<String, DocumentSnapshot<Map<String, dynamic>>>>
-      getAlliumVegetablesProducts() async {
+      getMixedDryProducts() async {
     late dynamic value;
     try {
       await FirebaseFirestore.instance
-          .collection('vegetables')
-          .doc('allium_vegetables')
+          .collection('dry_fruit')
+          .doc('mixed_dry')
+          .get()
+          .then((v) {
+        value = v;
+      });
+      return right(value);
+    } catch (error) {
+      print(error.toString());
+      return left(error.toString());
+    }
+  }
+
+  Future<Either<String, DocumentSnapshot<Map<String, dynamic>>>>
+      getKashmiriDryFruitProducts() async {
+    late dynamic value;
+    try {
+      await FirebaseFirestore.instance
+          .collection('dry_fruit')
+          .doc('kashmiri')
           .get()
           .then((v) {
         value = v;

@@ -1,13 +1,10 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_market_app/core/functions/globle_functions.dart';
 import 'package:fruit_market_app/features/widgets/custom_text.dart';
-
-import '../../../core/uitls/app_colors.dart';
-import '../../auth/presentation/widgets/rounded_button.dart';
-import '../model/product_model.dart';
+import '../../../../core/uitls/app_colors.dart';
+import '../../data/model/product_model.dart';
 
 class DetailsView extends StatelessWidget {
   final ProductModel model;
